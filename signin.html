@@ -155,7 +155,7 @@
     const { error } = await supabaseClient.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: "http://127.0.0.1:5500/nutritionproject/frontend/verify.html",
+        emailRedirectTo: "https://anutritionistmom.vercel.app/verify.html",
         shouldCreateUser: true
       }
     });
