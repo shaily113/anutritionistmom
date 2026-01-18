@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verifying...</title>
+</head>
+<body>
+
+  <p>Verifying your email, please wait...</p>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase;
+
+  const supabaseClient = createClient(
+      "https://kajqxzywlanjmjrwseyt.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImthanF4enl3bGFuam1qcndzZXl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3NTAzMzUsImV4cCI6MjA4MjMyNjMzNX0.kLtQOJDx2NEYagClt_AwjuoUl1pzXGh6mM7Hg8I9AvA",
+{
+        auth: {
+          detectSessionInUrl: true,
+          persistSession: true
+        }
+      }
+    );
+
+    async function handleVerify() {
+    // 🔹 Wait for Supabase to finish processing the magic link
+    const { data, error } = await supabaseClient.auth.getUser();
+
+    if (error || !data.user) {
+      document.body.innerHTML = "<h3>Verification failed or link expired.</h3>";
+      return;
+    }
+
+    const userId = data.user.id;
+
+    // 🔹 Fetch profile status
+    const { data: profile } = await supabaseClient
+      .from("profiles")
+      .select("is_profile_complete")
+      .eq("id", userId)
+      .maybeSingle();
+
+    // 🔹 First-time user OR incomplete profile
+    if (!profile || !profile.is_profile_complete) {
+      window.location.href = "profile.html";
+    } else {
+      window.location.href = "dashboard.html";
+    }
+  }
+
+  // 🔹 Run after page load
+  window.addEventListener("load", handleVerify);
+</script>
+</body>
+</html>
