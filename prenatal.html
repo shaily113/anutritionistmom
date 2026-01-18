@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Prenatal Nutrition | A Nutritionist Mom</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root{
+  --primary:#8b5e3c;
+  --secondary:#e9a7b0;
+  --accent:#f6c1a2;
+  --dark:#3c2e1e;
+  --light:#fff7f1;
+}
+
+body{
+  background:linear-gradient(180deg,#fff7f1,#fde8d7);
+}
+    /* ===========================
+   FIXED TOP BAR
+   =========================== */
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: #fffaf5;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  z-index: 1000;
+}
+
+.top-bar-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 85px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Brand name */
+.brand-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b5e3c;
+  letter-spacing: 0.3px;
+}
+/* HERO */
+.prenatal-hero{
+  min-height:90vh;
+  background:
+    linear-gradient(rgba(255,29,29,.45),rgba(57,10,10,.45)),
+    url("prenatal-hero.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding:120px 8%;
+  color:#fff;
+}
+
+.hero-content{
+  max-width:650px;
+}
+
+.hero-badge{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--accent),var(--secondary));
+  padding:8px 20px;
+  border-radius:30px;
+  font-size:14px;
+  margin-bottom:18px;
+}
+
+.hero-content h1{
+  font-size:42px;
+  line-height:1.2;
+  margin-bottom:16px;
+}
+
+.hero-content p{
+  font-size:18px;
+  opacity:.95;
+}
+
+/* INTRO */
+.prenatal-intro{
+  padding:80px 8%;
+  display:grid;
+  grid-template-columns:1.2fr 1.5fr;
+  gap:90px;
+  background:#fff;
+}
+
+.prenatal-intro h2{
+  font-size:30px;
+  color:var(--primary);
+  margin-bottom:15px;
+}
+
+.prenatal-intro p{
+  color:var(--dark);
+  line-height:1.8;
+  margin-bottom:0px;
+  font-size:18px;
+}
+
+.prenatal-intro img{
+  width:70%;
+  border-radius:20px;
+  box-shadow:0 12px 30px rgba(0,0,0,.15);
+}
+
+/* PROGRAMS */
+.programs{
+  padding:80px 8%;
+  background:linear-gradient(135deg,#fff3e8,#fde8d7);
+}
+
+.programs h2{
+  text-align:center;
+  font-size:32px;
+  color:var(--primary);
+  margin-bottom:50px;
+}
+
+.program-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+}
+
+.program-card{
+  background:#fff;
+  padding:30px;
+  border-radius:22px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.program-card h3{
+  color:var(--primary);
+  margin-bottom:10px;
+}
+
+.program-card ul{
+  padding-left:18px;
+}
+
+.program-card li{
+  margin-bottom:8px;
+  color:var(--dark);
+  font-size:14px;
+}
+
+.price{
+  margin-top:15px;
+  background:linear-gradient(135deg,var(--accent),var(--secondary));
+  color:#fff;
+  padding:14px;
+  border-radius:15px;
+  text-align:center;
+  font-weight:500;
+}
+
+/* CTA */
+.cta{
+  padding:80px 8%;
+  text-align:center;
+  background:linear-gradient(135deg,#b999807a,#61544c);
+  color:#fff;
+}
+
+.cta h2{
+  font-size:30px;
+  margin-bottom:15px;
+}
+
+.cta p{
+  font-size:18px;
+  margin-bottom:25px;
+}
+
+.cta a{
+  display:inline-block;
+  background:#fff;
+  color:var(--primary);
+  padding:14px 32px;
+  border-radius:40px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .prenatal-intro{
+    grid-template-columns:1fr;
+  }
+  .hero-content h1{
+    font-size:32px;
+  }
+}
+</style>
+</head>
+<body>
+<!-- FIXED TOP BAR -->
+<header class="top-bar">
+  <div class="top-bar-inner">
+    <span class="brand-name"><strong>A Nutritionist Mom</strong></span>
+  </div>
+</header>
+  <!-- ========== NAVBAR (copied into this page) ========== -->
+  <!-- Menu icon -->
+  <div class="menu-icon" id="menu-icon">☰</div>
+
+  <!-- Sign-in button -->
+  <div class="signin-btn" id="signin-btn">
+    <a href="signin.html" id="signin-link">Register</a>
+  </div>
+
+  <!-- Optional overlay element (script will create if missing) -->
+  <div id="navbar-overlay" class="navbar-overlay" aria-hidden="true"></div>
+
+  <!-- Sidebar navigation -->
+  <nav id="sidebar" aria-hidden="true">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+
+      <li class="dropdown">
+        <span class="dropdown-toggle" tabindex="0">Services ▾</span>
+        <ul class="submenu">
+          
+          <li>
+            <span class="dropdown-toggle" tabindex="0">Pregnancy ▾</span>
+            <ul class="submenu">
+              <li><a href="prenatal.html">Prenatal</a></li>
+              <li><a href="preconception.html">Preconception</a></li>
+              
+              <li><a href="postpartum.html">Postpartum</a></li>
+            </ul>
+          </li>
+
+          <li><a href="one.html">1–1 Consultation</a></li>
+        </ul>
+      </li>
+
+      <li><a href="tips.html">Weekly Tips</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+  <!-- ========== end navbar ========== -->
+<!-- HERO -->
+<section class="prenatal-hero">
+  <div class="hero-content">
+    <span class="hero-badge">Prenatal Care Program</span>
+    <h1>Nourishing Mother & Baby Through Every Trimester</h1>
+    <p>
+      A calm, structured and supportive prenatal wellness program designed
+      to guide you through pregnancy with confidence, nourishment and care.
+    </p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="prenatal-intro">
+  <div>
+    <h2>Why Prenatal Care Matters</h2>
+    <p>
+      Pregnancy brings rapid physical and emotional changes. Proper prenatal care
+      ensures your body receives the right nutrition, movement, and guidance
+      to support healthy fetal development and maternal well-being.
+    </p>
+    <p>
+      This program supports energy levels, digestion, hormonal balance,
+      weight management and emotional calm — helping you enjoy pregnancy
+      rather than fear it.
+    </p>
+  </div>
+
+  <img src="prenatal.jpg" alt="Prenatal Wellness Care">
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs">
+  <h2>Prenatal Care Programs</h2>
+
+  <div class="program-grid">
+    <!-- FLAGSHIP -->
+    <div class="program-card">
+      <h3>Complete Pregnancy Wellness Program (Flagship)</h3>
+      <p><strong>Duration:</strong> 3–6 months (Trimester-wise)</p>
+      <ul>
+        <li>Pregnancy-safe yoga (4–5x/week)</li>
+        <li>Trimester-specific nutrition guidance</li>
+        <li>Support for GDM, anemia, fatigue & weight gain</li>
+        <li>Weekly / bi-weekly check-ins</li>
+        <li>WhatsApp support (weekdays)</li>
+        <li>Birth preparation & recovery awareness</li>
+        <li><strong>Bonus:</strong> Postpartum recovery roadmap</li>
+      </ul>
+      <p><strong>Ideal for:</strong> Women seeking structured, continuous support.</p>
+      <div class="price">₹8,000 – ₹15,000</div>
+    </div>
+
+    <!-- MONTHLY -->
+    <div class="program-card">
+      <h3>Monthly Pregnancy Support Plan</h3>
+      <ul>
+        <li>Group pregnancy yoga sessions</li>
+        <li>Basic nutrition education & meal guidance</li>
+        <li>Monthly Q&A / guidance call</li>
+      </ul>
+      <p><strong>Ideal for:</strong> Women wanting flexible, ongoing support.</p>
+      <div class="price">₹3,000 – ₹5,000 / month</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Start Your Calm & Confident Pregnancy Journey</h2>
+  <p>Personalized guidance, gentle care, and trusted support — every step of the way.</p>
+  <a href="signin.html">Register / Book a Consultation</a>
+</section>
+
+
+</main>
+<!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <h2>Contact Me</h2>
+      <p>Connect with me on social platforms or reach out directly.</p>
+      <div class="contact-icons">
+        <a href="https://www.instagram.com/a_nutritionist_mom/?next=%2F" target="_blank" class="contact-icon" title="Instagram">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com/@A_nutritionist_mom" target="_blank" class="contact-icon" title="YouTube">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+        </a>
+      </div>
+      <div class="contact-details">
+        <p><strong>Email:</strong> <a href="mailto:anutritionistmom@gmail.com">anutritionistmom@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+    <footer>
+      © 2025 A Nutritionist Mom. All rights reserved.
+    </footer>
+ <script>
+(function () {
+  function init() {
+    const menuIcon = document.getElementById('menu-icon');
+    const sidebar = document.getElementById('sidebar');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle'); // buttons/links that open submenus
+    const submenuSelector = '#sidebar .submenu'; // selector for the actual submenu containers
+    const overlayId = 'navbar-overlay';
+    let overlay = document.getElementById(overlayId);
+
+    // Defensive return if missing required elements (avoid runtime errors)
+    if (!menuIcon || !sidebar) return;
+
+    // Create overlay if not present
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = overlayId;
+      overlay.className = 'navbar-overlay';
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(overlay);
+    }
+
+    // Prevent double-init
+    if (menuIcon.dataset.navInit === 'true') return;
+    menuIcon.dataset.navInit = 'true';
+
+    // state
+    let isOpen = false;
+
+    function closeAllSubmenus() {
+      // hide submenu containers
+      document.querySelectorAll(submenuSelector).forEach(sm => {
+        // prefer native ARIA/visibility but inline style is simple and reliable
+        sm.style.display = 'none';
+        sm.setAttribute('aria-hidden', 'true');
+      });
+      // remove 'open' class from toggles (if used for styling)
+      document.querySelectorAll('#sidebar .dropdown-toggle.open').forEach(t => t.classList.remove('open'));
+    }
+
+    function openSidebar() {
+      sidebar.classList.add('active');
+      overlay.classList.add('show');
+      sidebar.setAttribute('aria-hidden', 'false');
+      overlay.setAttribute('aria-hidden', 'false');
+      menuIcon.textContent = '✕';
+      menuIcon.setAttribute('aria-expanded', 'true');
+      isOpen = true;
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('show');
+      sidebar.setAttribute('aria-hidden', 'true');
+      overlay.setAttribute('aria-hidden', 'true');
+      menuIcon.textContent = '☰';
+      menuIcon.setAttribute('aria-expanded', 'false');
+      isOpen = false;
+
+      // -- NEW: close all submenus automatically when sidebar closes
+      closeAllSubmenus();
+    }
+
+    function toggleSidebar() {
+      isOpen ? closeSidebar() : (openSidebar());
+    }
+
+    // Make menuIcon accessible
+    menuIcon.setAttribute('role', 'button');
+    menuIcon.setAttribute('tabindex', '0');
+    menuIcon.setAttribute('aria-expanded', 'false');
+
+    // click / keyboard toggle
+    menuIcon.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggleSidebar();
+    });
+    menuIcon.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleSidebar();
+      }
+    });
+
+    // overlay click closes sidebar
+    overlay.addEventListener('click', function () {
+      if (isOpen) closeSidebar();
+    });
+
+    // click outside closes sidebar
+    document.addEventListener('click', function (e) {
+      const target = e.target;
+      if (isOpen && sidebar && !sidebar.contains(target) && !menuIcon.contains(target)) {
+        closeSidebar();
+      }
+    });
+
+    // Escape closes sidebar
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen) closeSidebar();
+    });
+
+    // Setup dropdown toggles (nested) — clicking opens submenu, clicking again closes it
+    if (dropdownToggles && dropdownToggles.length) {
+      dropdownToggles.forEach(toggle => {
+        // idempotent init guard
+        if (toggle.dataset.dropdownInit === 'true') return;
+        toggle.dataset.dropdownInit = 'true';
+
+        // ensure keyboard focusable
+        if (!toggle.hasAttribute('tabindex')) toggle.setAttribute('tabindex', '0');
+
+        toggle.addEventListener('click', function (ev) {
+          ev.stopPropagation();
+          const submenu = toggle.nextElementSibling;
+          if (!submenu) return;
+          const shown = submenu.style.display === 'block';
+          if (shown) {
+            submenu.style.display = 'none';
+            submenu.setAttribute('aria-hidden', 'true');
+          } else {
+            // optionally close other sibling submenus if you want accordion behaviour:
+            // document.querySelectorAll(submenuSelector).forEach(s => s.style.display = 'none');
+
+            submenu.style.display = 'block';
+            submenu.setAttribute('aria-hidden', 'false');
+          }
+          toggle.classList.toggle('open', !shown);
+        });
+
+        toggle.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault();
+            toggle.click();
+          }
+        });
+      });
+    }
+
+    // Responsive: when resizing to larger screen, close overlay/sidebar
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 900 && isOpen) {
+        closeSidebar();
+      }
+    });
+
+    // expose for debugging
+    window._nav = {
+      openSidebar,
+      closeSidebar,
+      toggleSidebar,
+      isOpen: () => isOpen
+    };
+  } // init
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>

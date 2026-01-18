@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>1-1 Consultation — A Nutritionist Mom</title>
+
+  <!-- Calendly assets -->
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
+ <style>
+/* =========================
+   THEME VARIABLES
+========================= */
+:root {
+  --accent: #8b5e3c;
+  --bg: #faf4ef;
+  --card: #ffffff;
+  --text: #3c2e1e;
+  --muted: #7a6754;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --radius: 16px;
+}
+
+/* =========================
+   RESET & BASE
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
+  background:
+    linear-gradient(
+      rgba(255,255,255,0.88),
+      rgba(255,255,255,0.88)
+    ),
+    url("images/consultation-bg.jpg") center / cover no-repeat fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================
+   MAIN WRAPPER
+========================= */
+.content-wrap {
+  min-height: 100vh;
+  padding: 60px 42px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.consult-hero {
+  max-width: 850px;
+  margin-bottom: 50px;
+}
+
+.consult-hero h1 {
+  font-size: 2.2rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 650px;
+}
+
+/* =========================
+   SECTION CARD
+========================= */
+.section-card {
+  background: rgba(255,255,255,0.95);
+  padding: 28px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 36px;
+}
+
+/* =========================
+   INFO GRID
+========================= */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.info-box h3 {
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.info-box ul {
+  padding-left: 18px;
+  margin: 0 0 14px;
+}
+
+.info-box li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* =========================
+   CONSULTATION DETAILS
+========================= */
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+}
+
+.detail-row strong {
+  color: var(--accent);
+}
+
+/* =========================
+   HOW IT WORKS
+========================= */
+.how-it-works {
+  margin-bottom: 50px;
+}
+
+.steps {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.step {
+  background: #fff;
+  padding: 14px 18px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   BOOKING SECTION
+========================= */
+.booking-box {
+  max-width: 720px;
+}
+
+.prefill-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1px solid #e2d8cd;
+  font-size: 14px;
+}
+
+.btn {
+  padding: 12px 22px;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #70492f;
+  transform: translateY(-1px);
+}
+
+.small-note {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* =========================
+   LOCK STATE
+========================= */
+.consult-lock {
+  background: #fff;
+  padding: 32px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 720px;
+}
+
+.consult-lock h2 {
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+  .content-wrap {
+    padding: 40px 20px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prefill-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+    /* ================= MENU ICON ================= */
+    .menu-icon{
+      position:fixed;
+      top:20px;
+      left:20px;
+      font-size:28px;
+      cursor:pointer;
+      z-index:1000;
+      background:#fff;
+      padding:6px 12px;
+      border-radius:8px;
+      border:none;
+      box-shadow:0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    /* ================= SIDEBAR ================= */
+    #sidebar{
+      position:fixed;
+      left:-260px;
+      top:0;
+      width:260px;
+      height:100%;
+      background:#fff;
+      box-shadow:2px 0 10px rgba(0,0,0,0.1);
+      transition:left 0.28s ease;
+      z-index:999;
+      padding-top:80px;
+    }
+    #sidebar.active{ left:0; }
+
+    #sidebar ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    #sidebar ul li{
+      padding:12px 22px;
+    }
+
+    #sidebar ul li a{
+      text-decoration:none;
+      color:#4a3c2b;
+      font-weight:500;
+      display:block;
+    }
+
+    #sidebar ul li a:hover{
+      color:var(--accent);
+    }
+
+    .navbar-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.3);
+      display:none;
+      z-index:998;
+    }
+    .navbar-overlay.show{ display:block; }
+
+    /* ===== SIDEBAR DIVIDER ===== */
+    .sidebar-divider{
+      height:1px;
+      background:#e2d6cc;
+      margin:14px 18px;
+      padding:0 !important;
+    }
+
+    /* ===== SIDEBAR ACTION BUTTONS ===== */
+    .sidebar-actions{
+      display:flex;
+      gap:10px;
+      padding:10px 18px;
+    }
+
+    .sidebar-btn{
+      flex:1;
+      background:#8b5e3c;
+      color:#fff;
+      border:none;
+      padding:8px 0;
+      border-radius:8px;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .sidebar-btn:hover{ background:#70492f; }
+
+    .sidebar-btn.logout{
+      background:#70492f;
+    }
+   
+/* ================= CONTACT SECTION ================= */
+.contact-section{
+  margin-top:60px;
+  padding-top:30px;
+  border-top:1px solid #e2d6cc;
+  text-align:center;
+}
+
+.contact-section h3{
+  color:var(--accent);
+  margin-bottom:6px;
+}
+
+.contact-desc{
+  font-size:14px;
+  color:#6b5b4d;
+}
+
+.contact-icons{
+  margin-top:12px;
+}
+
+.contact-icons a{
+  display:inline-block;
+  margin:0 8px;
+}
+
+.contact-icons img{
+  width:26px;
+  height:26px;
+  opacity:0.8;
+  transition:opacity 0.3s ease, transform 0.3s ease;
+}
+
+.contact-icons img:hover{
+  opacity:1;
+  transform:translateY(-2px);
+}
+
+/* ================= FOOTER ================= */
+.site-footer{
+  margin-top:40px;
+  padding:14px 0;
+  text-align:center;
+  font-size:13px;
+  color:#5a4a3a;
+}
+
+/* ===== 1-1 CONSULTATION PAGE BACKGROUND ===== */
+body {
+  background:
+    linear-gradient(
+      rgba(255, 255, 255, 0.88),
+      rgba(255, 255, 255, 0.88)
+    ),
+    url("clock.jpg") center / cover no-repeat fixed;
+}
+
+  </style>
+</head>
+
+<body>
+ 
+<!-- MENU ICON -->
+<button class="menu-icon" id="menu-icon">☰</button>
+
+<!-- OVERLAY -->
+<div id="navbar-overlay" class="navbar-overlay"></div>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <ul>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="zpren.html">Prenatal</a></li>
+<li><a href="zpost.html">Postpartum</a></li>
+<li><a href="zprec.html">Preconception</a></li>
+
+<li><a href="z1-1.html">1–1 Consultation</a></li>
+
+
+
+    <li class="sidebar-divider"></li>
+
+    <li class="sidebar-actions" id="sidebar-actions" style="display:none;">
+      <button class="sidebar-btn" id="sidebar-profile">Profile</button>
+      <button class="sidebar-btn logout" id="sidebar-logout">Logout</button>
+    </li>
+  </ul>
+</nav>
+    </aside>
+
+ <div class="content-wrap">
+  <main class="container consultation-page">
+
+    <!-- HERO -->
+    <section class="consult-hero">
+      <h1>1-1 Nutrition Consultation</h1>
+      <p class="hero-sub">
+        A focused, personalised <strong>30-minute Zoom consultation</strong>
+        designed to understand your concern and guide you in the right direction.
+      </p>
+    </section>
+
+    <!-- LOCK MESSAGE -->
+    <section id="consult-lock" class="consult-lock" style="display:none">
+      <h2>Free Consultation Used</h2>
+      <p>
+        You can book a free 1-1 consultation <strong>only once per email</strong>.
+        Thank you for your trust.
+      </p>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section id="consult-content">
+
+      <!-- INFO GRID -->
+      <div class="info-grid">
+
+        <!-- LEFT -->
+        <div class="info-box">
+          <h3>What happens in this consultation?</h3>
+          <ul>
+            <li>✔ One-to-one private Zoom meeting</li>
+            <li>✔ Discussion focused only on <strong>your problem</strong></li>
+            <li>✔ Clear understanding of root causes</li>
+            <li>✔ Honest guidance on next steps</li>
+          </ul>
+
+          <p class="note">
+            This session is not rushed. The goal is to understand you properly,
+            not to sell anything.
+          </p>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="info-box highlight">
+          <h3>Consultation Details</h3>
+          <div class="detail-row">
+            <span>Duration</span>
+            <strong>30 Minutes</strong>
+          </div>
+          <div class="detail-row">
+            <span>Mode</span>
+            <strong>Zoom Meeting</strong>
+          </div>
+          <div class="detail-row">
+            <span>Cost</span>
+            <strong>Free (One-time only)</strong>
+          </div>
+          <div class="detail-row">
+            <span>Language</span>
+            <strong>Hindi / English</strong>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- HOW IT WORKS -->
+      <section class="how-it-works">
+        <h3>How it works</h3>
+        <div class="steps">
+          <div class="step">1️⃣ Book your slot</div>
+          <div class="step">2️⃣ Get Zoom link on email</div>
+          <div class="step">3️⃣ Attend 30-min consultation</div>
+        </div>
+      </section>
+
+      <!-- BOOKING -->
+      <section class="booking-box">
+        <h3>Book Your Free Consultation</h3>
+
+        <div class="prefill-row">
+          <div>
+            <label>Your Name *</label>
+            <input id="prefill-name" type="text" placeholder="Full name" required>
+          </div>
+
+          <button id="open-calendly-popup" class="btn">
+            Book via Calendly
+          </button>
+        </div>
+
+        <p class="small-note">
+          ⚠ Free consultation is available only once per email.
+        </p>
+      </section>
+
+    </section>
+
+  </main>
+</div>
+
+<!-- ================= CONTACT SECTION ================= -->
+<section class="contact-section" id="contact">
+  <h3 id="contactTitle">Contact Me</h3>
+  <p class="contact-desc">
+    Connect with me on social platforms or reach out directly for queries and consultation.
+  </p>
+
+  <div class="contact-icons">
+    <a href="https://www.instagram.com/a_nutritionist_mom/" target="_blank" aria-label="Instagram">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+    </a>
+
+    <a href="mailto:shailyjain@gmail.com" aria-label="Email">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail">
+    </a>
+
+    <a href="https://www.youtube.com/@A_nutritionist_mom" target="_blank" aria-label="YouTube">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+    </a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  © 2025 A Nutritionist Mom. All rights reserved.
+</footer>
+
+  <!-- Calendly -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<!-- Supabase -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+/* ================= SUPABASE SETUP ================= */
+  const { createClient } = supabase;
+
+  const supabaseClient = createClient(
+    "https://kajqxzywlanjmjrwseyt.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImthanF4enl3bGFuam1qcndzZXl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3NTAzMzUsImV4cCI6MjA4MjMyNjMzNX0.kLtQOJDx2NEYagClt_AwjuoUl1pzXGh6mM7Hg8I9AvA"
+  );
+async function checkFreeConsultationAccess() {
+  const { data } = await supabaseClient.auth.getSession();
+
+  if (!data.session) {
+    window.location.href = "signin.html";
+    return;
+  }
+
+  const { data: profile } = await supabaseClient
+    .from("profiles")
+    .select("free_consultation_used, name")
+    .eq("id", data.session.user.id)
+    .single();
+
+  if (profile?.name) {
+    document.getElementById("prefill-name").value = profile.name;
+  }
+
+  if (profile?.free_consultation_used) {
+    lockConsultation();
+  }
+}
+
+/* ================= LOCK UI ================= */
+
+function lockConsultation() {
+  document.getElementById("consult-content").style.display = "none";
+  document.getElementById("consult-lock").style.display = "block";
+}
+
+/* ================= BOOK (STRICT) ================= */
+
+async function openCalendlyOnce() {
+  const name = document.getElementById("prefill-name").value.trim();
+  if (!name) {
+    alert("Please enter your name");
+    return;
+  }
+
+  const { data } = await supabaseClient.auth.getSession();
+  if (!data.session) return;
+
+  // 🔒 LOCK FOREVER ON CLICK
+  await supabaseClient
+    .from("profiles")
+    .update({ free_consultation_used: true })
+    .eq("id", data.session.user.id);
+
+  lockConsultation();
+
+  document.querySelector(".calendly-overlay")?.remove();
+
+  Calendly.initPopupWidget({
+    url:
+      "https://calendly.com/anutritionistmom/30min" +
+      "?name=" + encodeURIComponent(name)
+  });
+}
+
+/* ================= BUTTON ================= */
+
+document
+  .getElementById("open-calendly-popup")
+  .addEventListener("click", openCalendlyOnce);
+  /* ===== SIDEBAR ===== */
+  const menuIcon = document.getElementById("menu-icon");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("navbar-overlay");
+  let isOpen = false;
+
+  function openSidebar(){
+    sidebar.classList.add("active");
+    overlay.classList.add("show");
+    menuIcon.textContent = "✕";
+    isOpen = true;
+  }
+
+  function closeSidebar(){
+    sidebar.classList.remove("active");
+    overlay.classList.remove("show");
+    menuIcon.textContent = "☰";
+    isOpen = false;
+  }
+
+  menuIcon.addEventListener("click", ()=>{
+    isOpen ? closeSidebar() : openSidebar();
+  });
+
+  overlay.addEventListener("click", closeSidebar);
+
+  document.addEventListener("click",(e)=>{
+    if(isOpen && !sidebar.contains(e.target) && !menuIcon.contains(e.target)){
+      closeSidebar();
+    }
+  });
+
+ 
+  /* ===== SIDEBAR PROFILE / LOGOUT ===== */
+  const sidebarActions = document.getElementById("sidebar-actions");
+  const sidebarProfile = document.getElementById("sidebar-profile");
+  const sidebarLogout = document.getElementById("sidebar-logout");
+
+ 
+  /* ===== SIDEBAR PROFILE / LOGOUT (SUPABASE) ===== */
+async function setupSidebarAuth() {
+  const { data } = await supabaseClient.auth.getSession();
+
+  if (data.session) {
+    sidebarActions.style.display = "flex";
+
+    sidebarProfile.onclick = () => {
+      window.location.href = "user-details.html";
+    };
+
+    sidebarLogout.onclick = async () => {
+      await supabaseClient.auth.signOut();
+      window.location.href = "signin.html";
+    };
+  }
+}
+
+setupSidebarAuth();
+
+/* ================= INIT ================= */
+
+window.addEventListener("DOMContentLoaded", () => {
+  checkFreeConsultationAccess();
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weekly Tips | A Nutritionist Mom</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===========================
+   FIXED TOP BAR
+   =========================== */
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: #fffaf5;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  z-index: 1000;
+}
+
+.top-bar-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 85px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Brand name */
+.brand-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b5e3c;
+  letter-spacing: 0.3px;
+}
+   /* ===========================
+   HYDRATION SECTION – IMPROVED
+   =========================== */
+
+.hydration-section {
+  background: #fff7f1; /* softer peach background */
+  padding: 100px 24px;
+}
+
+.hydration-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 80px; /* more space between image & text */
+  align-items: center;
+}
+
+/* IMAGE */
+.hydration-image {
+  flex: 1.2; /* image slightly larger */
+}
+
+.hydration-image img {
+  width: 100%;
+  max-height: 480px; /* visual control */
+  object-fit: cover;
+  border-radius: 22px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+/* CONTENT */
+.hydration-content {
+  flex: 1;
+}
+
+.hydration-content h2 {
+  font-size: 34px;
+  color: #7a4f2c; /* slightly deeper than brand */
+  margin-bottom: 24px;
+  line-height: 1.3;
+}
+
+.hydration-content p {
+  font-size: 17px;
+  line-height: 1.9; /* more readable */
+  color: #3c2e1e;
+  margin-bottom: 22px;
+}
+
+/* LIST */
+.hydration-content ul {
+  padding-left: 22px;
+  margin-bottom: 28px;
+}
+
+.hydration-content ul li {
+  margin-bottom: 14px; /* more gap */
+  font-size: 16px;
+  line-height: 1.7;
+  color: #4a3828;
+}
+
+/* Highlight box */
+.hydration-content .highlight {
+  background: #eef6f1; /* sage green */
+  padding: 20px 22px;
+  border-left: 5px solid #8b5e3c;
+  border-radius: 12px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ===========================
+   MOBILE
+   =========================== */
+@media (max-width: 768px) {
+  .hydration-container {
+    flex-direction: column;
+    gap: 36px;
+    text-align: left;
+  }
+
+  .hydration-content h2 {
+    font-size: 26px;
+  }
+
+  .hydration-image img {
+    max-height: 360px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  
+ <!-- FIXED TOP BAR -->
+<header class="top-bar">
+  <div class="top-bar-inner">
+    <span class="brand-name"><strong>A Nutritionist Mom</strong></span>
+  </div>
+</header>
+
+  <!-- ========== NAVBAR (copied into this page) ========== -->
+  <!-- Menu icon -->
+  <div class="menu-icon" id="menu-icon">☰</div>
+
+  <!-- Sign-in button -->
+  <div class="signin-btn" id="signin-btn">
+    <a href="signin.html" id="signin-link">Register</a>
+  </div>
+
+  <!-- Optional overlay element (script will create if missing) -->
+  <div id="navbar-overlay" class="navbar-overlay" aria-hidden="true"></div>
+
+  <!-- Sidebar navigation -->
+  <nav id="sidebar" aria-hidden="true">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+
+      <li class="dropdown">
+        <span class="dropdown-toggle" tabindex="0">Services ▾</span>
+        <ul class="submenu">
+          
+          <li>
+            <span class="dropdown-toggle" tabindex="0">Pregnancy ▾</span>
+            <ul class="submenu">
+              <li><a href="prenatal.html">Prenatal</a></li>
+              <li><a href="preconception.html">Preconception</a></li>
+              
+              <li><a href="postpartum.html">Postpartum</a></li>
+            </ul>
+          </li>
+
+          <li><a href="one.html">1–1 Consultation</a></li>
+        </ul>
+      </li>
+
+      <li><a href="tips.html">Weekly Tips</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+  <!-- ========== end navbar ========== -->
+
+<section class="hydration-section">
+  <div class="hydration-container">
+
+    <!-- IMAGE -->
+    <div class="hydration-image">
+      <img src="lady drinking water tips.png" alt="Pregnant woman drinking water">
+    </div>
+
+    <!-- CONTENT -->
+    <div class="hydration-content">
+      <h2>Importance of Drinking Water During Pregnancy</h2>
+
+      <p>
+        Staying hydrated is extremely important for a healthy pregnancy.
+        Water supports both the mother’s body and the baby’s growth.
+      </p>
+
+      <ul>
+        <li>Helps maintain amniotic fluid levels</li>
+        <li>Supports digestion and nutrient absorption</li>
+        <li>Prevents constipation and dehydration</li>
+        <li>Helps regulate body temperature</li>
+      </ul>
+
+      <p class="highlight">
+        💧 Pregnant women should aim to drink  
+        <strong>8–12 glasses (2.5–3 liters)</strong> of water daily.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <h2>Contact Me</h2>
+      <p>Connect with me on social platforms or reach out directly.</p>
+      <div class="contact-icons">
+        <a href="https://www.instagram.com/a_nutritionist_mom/?next=%2F" target="_blank" class="contact-icon" title="Instagram">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com/@A_nutritionist_mom" target="_blank" class="contact-icon" title="YouTube">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+        </a>
+      </div>
+      <div class="contact-details">
+        <p><strong>Email:</strong> <a href="mailto:anutritionistmom@gmail.com">anutritionistmom@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+    <footer>
+      © 2025 A Nutritionist Mom. All rights reserved.
+    </footer>
+    
+  <script>
+(function () {
+  // Safe init after DOM ready
+  function init() {
+    const menuIcon = document.getElementById('menu-icon');
+    const sidebar = document.getElementById('sidebar');
+    // selectors used for submenus & toggles — adjust if your markup differs
+    const submenuSelector = '#sidebar .submenu';
+    const dropdownToggleSelector = '#sidebar .dropdown-toggle';
+
+    if (!menuIcon || !sidebar) return; // nothing to do
+
+    // prevent double init
+    if (menuIcon.dataset.navInit === 'true') return;
+    menuIcon.dataset.navInit = 'true';
+
+    let isOpen = false;
+
+    function closeAllSubmenus() {
+      // hide submenu containers and remove "open" classes from toggles
+      document.querySelectorAll(submenuSelector).forEach(sm => {
+        sm.style.display = 'none';
+        sm.setAttribute('aria-hidden', 'true');
+      });
+      document.querySelectorAll(dropdownToggleSelector + '.open').forEach(t => t.classList.remove('open'));
+    }
+
+    function openSidebar() {
+      sidebar.classList.add('active');
+      menuIcon.textContent = '✕';
+      menuIcon.setAttribute('aria-expanded', 'true');
+      isOpen = true;
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('active');
+      menuIcon.textContent = '☰';
+      menuIcon.setAttribute('aria-expanded', 'false');
+      isOpen = false;
+      // NEW: close all submenus automatically when sidebar closes
+      closeAllSubmenus();
+    }
+
+    function toggleSidebar(e) {
+      if (e) e.stopPropagation();
+      isOpen ? closeSidebar() : openSidebar();
+    }
+
+    // Accessibility: make menuIcon keyboard-focusable/button-like
+    menuIcon.setAttribute('role', 'button');
+    menuIcon.setAttribute('tabindex', '0');
+    menuIcon.setAttribute('aria-expanded', 'false');
+
+    // click / keyboard toggles
+    menuIcon.addEventListener('click', toggleSidebar);
+    menuIcon.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleSidebar(e);
+      }
+    });
+
+    // click outside closes sidebar
+    document.addEventListener('click', function (e) {
+      const target = e.target;
+      if (isOpen && sidebar && !sidebar.contains(target) && !menuIcon.contains(target)) {
+        closeSidebar();
+      }
+    });
+
+    // Escape closes
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen) closeSidebar();
+    });
+
+    // Setup dropdown toggles inside sidebar: click to show/hide submenu
+    const dropdownToggles = document.querySelectorAll(dropdownToggleSelector);
+    if (dropdownToggles.length) {
+      dropdownToggles.forEach(toggle => {
+        // idempotent init
+        if (toggle.dataset.dropdownInit === 'true') return;
+        toggle.dataset.dropdownInit = 'true';
+
+        if (!toggle.hasAttribute('tabindex')) toggle.setAttribute('tabindex', '0');
+
+        toggle.addEventListener('click', function (ev) {
+          ev.stopPropagation();
+          const submenu = toggle.nextElementSibling;
+          if (!submenu) return;
+          const shown = submenu.style.display === 'block';
+          submenu.style.display = shown ? 'none' : 'block';
+          submenu.setAttribute('aria-hidden', shown ? 'true' : 'false');
+          toggle.classList.toggle('open', !shown);
+        });
+
+        toggle.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault();
+            toggle.click();
+          }
+        });
+      });
+    }
+
+    // optional: close sidebar when resizing to large screens (match CSS breakpoints)
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 900 && isOpen) closeSidebar();
+    });
+
+    // expose for debugging
+    window._nav = {
+      openSidebar,
+      closeSidebar,
+      toggleSidebar,
+      isOpen: () => isOpen
+    };
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>

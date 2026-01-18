@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Nutritionist Mom | Home</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+    /* ===========================
+   FIXED TOP BAR
+   =========================== */
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: #fffaf5;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  z-index: 1000;
+}
+
+.top-bar-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 85px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Brand name */
+.brand-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b5e3c;
+  letter-spacing: 0.3px;
+}
+/* ===========================
+   WHY CHOOSE SECTION – FIXED
+=========================== */
+
+.why-choose {
+  background: #ffffff;
+  padding: 10px 20px;
+}
+
+.why-container {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+/* Heading */
+.why-choose h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #8b5e3c;
+  margin-bottom: 14px;
+}
+
+/* Intro */
+.why-intro {
+  text-align: center;
+  font-size: 17px;
+  color: #4a3c2b;
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+/* Card wrapper */
+.why-card {
+  background: #fffaf5;
+  padding: 32px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+}
+
+/* Paragraphs */
+.why-card p {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: #3c2e1e;
+  margin-bottom: 18px;
+}
+
+/* Highlight block */
+.why-highlight {
+  background: #ffffff;
+  border-left: 4px solid #8b5e3c;
+  padding: 16px 18px;
+  margin: 24px 0;
+  border-radius: 10px;
+}
+
+.why-highlight p {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+/* Closing */
+.why-closing {
+  margin-top: 24px;
+  font-weight: 500;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .why-choose h2 {
+    font-size: 26px;
+  }
+
+  .why-card {
+    padding: 24px 20px;
+  }
+}
+
+/* ===============================
+   STORY CARDS
+================================ */
+
+.story-section {
+  padding: 70px 20px;
+  background: #fffaf5;
+  text-align: center;
+}
+
+.story-heading {
+  font-size: 24px;
+  color: #8b5e3c;
+  margin-bottom: 40px;
+}
+
+/* Grid */
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Card base */
+.story-card {
+  padding: 22px 20px;
+  border-radius: 18px;
+  text-align: left;
+  line-height: 1.6;
+  font-size: 14.5px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+}
+
+.story-card h3 {
+  margin-bottom: 10px;
+  color: #3c2e1e;
+}
+
+/* Unique soft colors */
+.card-1 { background: #fde8e1; }
+.card-2 { background: #fff1dc; }
+.card-3 { background: #f3efe8; }
+.card-4 { background: #fdecea; }
+.card-5 { background: #eef6f1; }
+
+/* Mobile */
+@media (max-width: 600px) {
+  .story-heading {
+    font-size: 20px;
+  }
+  .story-card {
+    font-size: 14px;
+  }
+}
+/* ===========================
+   TESTIMONIALS
+=========================== */
+
+.testimonials {
+  background: #c4beb8;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.testimonials-title {
+  font-size: 34px;
+  color: #8b5e3c;
+  margin-bottom: 10px;
+}
+
+.testimonials-subtitle {
+  font-size: 17px;
+  color: #6f5a48;
+  margin-bottom: 50px;
+  line-height: 1.6;
+}
+
+/* Cards container */
+.testimonial-cards {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* Individual card */
+.testimonial-card {
+  background: #ffffff;
+  padding: 32px 18px;
+  border-radius: 18px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Text */
+.testimonial-text {
+  font-size: 16.5px;
+  line-height: 1.8;
+  color: #3c2e1e;
+  margin-bottom: 25px;
+}
+
+/* Footer */
+.testimonial-footer {
+  border-top: 1px solid #eee;
+  padding-top: 14px;
+}
+
+.testimonial-name {
+  display: block;
+  font-weight: 600;
+  color: #8b5e3c;
+  font-size: 15.5px;
+}
+
+.testimonial-role {
+  font-size: 14px;
+  color: #7a6754;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .testimonial-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonials-title {
+    font-size: 28px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- FIXED TOP BAR -->
+<header class="top-bar">
+  <div class="top-bar-inner">
+    <span class="brand-name"><strong>A Nutritionist Mom</strong></span>
+  </div>
+</header>
+
+  <!-- ========== NAVBAR (copied into this page) ========== -->
+  <!-- Menu icon -->
+  <div class="menu-icon" id="menu-icon">☰</div>
+
+  <!-- Sign-in button -->
+  <div class="signin-btn" id="signin-btn">
+    <a href="signin.html" id="signin-link">Register</a>
+  </div>
+
+  <!-- Optional overlay element (script will create if missing) -->
+  <div id="navbar-overlay" class="navbar-overlay" aria-hidden="true"></div>
+
+  <!-- Sidebar navigation -->
+  <nav id="sidebar" aria-hidden="true">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+
+      <li class="dropdown">
+        <span class="dropdown-toggle" tabindex="0">Services ▾</span>
+        <ul class="submenu">
+
+          <li>
+            <span class="dropdown-toggle" tabindex="0">Pregnancy ▾</span>
+            <ul class="submenu">
+              <li><a href="prenatal.html">Prenatal</a></li>
+              <li><a href="preconception.html">Preconception</a></li>
+              
+              <li><a href="postpartum.html">Postpartum</a></li>
+            </ul>
+          </li>
+
+          <li><a href="one.html">1–1 Consultation</a></li>
+        </ul>
+      </li>
+
+      <li><a href="tips.html">Weekly Tips</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+  <!-- ========== end navbar ========== -->
+
+  <!-- spacer so content isn't under fixed navbar -->
+  <div class="top-spacer" aria-hidden="true"></div>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Nurturing Motherhood<br>Through Food & Mindfulness</h1>
+    <p>Empowering women in every stage — preconception, pregnancy, and postpartum — with personalized nutrition & yoga guidance.</p>
+    <!-- Added Explore button -->
+    <a href="explore.html" class="hero-btn" id="explore-btn">Explore</a>
+  </div>
+</section>
+
+<!-- NEW WELCOME SECTION -->
+<section class="welcome" style="padding: 40px 20px; text-align: center; max-width: 900px; margin: auto;">
+  <h2>Welcome to Nutritionist Mom</h2>
+  <p style="margin-top: 15px; line-height: 1.7;font-size: 18px;">
+    Nurturing every stage of motherhood — through food, movement, and mindfulness.
+    Pregnancy is not just about growing a baby — it’s about nurturing a mother too.
+  </p>
+
+  <p style="margin-top: 15px; line-height: 1.7;font-size: 18px;">
+    At Nutritionist Mom, women through every phase of motherhood are supported — from preconception
+    to pregnancy to postpartum — with personalized nutrition and yoga guidance. Because every woman’s
+    body is different, and every pregnancy deserves care that’s personal, balanced, and backed
+    by knowledge.
+  </p>
+
+  <h3 style="margin-top: 30px;">✨ Services Include:</h3>
+  <ul style="list-style: none; padding: 0; margin-top: 15px; line-height: 1.8;font-size: 18px;">
+    <li><strong>• Preconception Wellness:</strong> Prepare your body and heart most naturally for conception.</li>
+    <li><strong>• Prenatal Care:</strong> Eat, move, and breathe right through each trimester.</li>
+    <li><strong>• Postpartum Recovery:</strong> Heal, restore energy, and manage weight gently after childbirth.</li>
+  </ul>
+
+  <p style="margin-top: 20px; font-weight: 500;font-size: 18px;">
+    Begin your journey toward a smoother and more confident motherhood with expert guidance.
+  </p>
+</section>
+
+<section class="why-choose">
+  <div class="why-container">
+
+    <h2>Why Choose Nutritionist Mom?</h2>
+
+    <div class="why-card">
+
+      <p>
+        At <strong>A Nutritionist Mom</strong>, we combine nutrition science and holistic
+        wellness to help mothers feel confident, balanced, and supported.
+      </p>
+
+      <div class="why-highlight">
+        <p><strong>Pregnancy is not just a medical phase.</strong></p>
+        <p>It is a physical, emotional, and lifestyle transformation.</p>
+        <p>With the right guidance, it doesn’t have to be overwhelming.</p>
+      </div>
+
+      <p class="why-closing">
+        I help women experience a healthier, calmer pregnancy through
+        <strong>nutrition</strong> and <strong>pregnancy-safe yoga</strong> —
+        and stay with them into recovery.
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ===========================
+     TESTIMONIALS
+=========================== -->
+<section class="testimonials">
+
+  <h2 class="testimonials-title">What Mothers Say</h2>
+  <p class="testimonials-subtitle">
+    Honest words from women who trusted me during their journey
+  </p>
+
+  <div class="testimonial-cards">
+
+    <!-- Card 1 -->
+    <div class="testimonial-card">
+      <p class="testimonial-text">
+        “I was extremely anxious during my pregnancy, but Shaily’s calm guidance
+        helped me feel confident and relaxed. The nutrition advice and pregnancy-safe
+        yoga made a huge difference to my energy and mindset.”
+      </p>
+      <div class="testimonial-footer">
+        <span class="testimonial-name">Neha</span>
+        <span class="testimonial-role">First-time Mom</span>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="testimonial-card">
+      <p class="testimonial-text">
+        “The pregnancy yoga sessions were gentle, safe, and perfectly suited to my body.
+        I felt supported at every step. Shaily listens patiently and reassures you
+        whenever doubts come up.”
+      </p>
+      <div class="testimonial-footer">
+        <span class="testimonial-name">Urvashi</span>
+        <span class="testimonial-role">Prenatal Care</span>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="testimonial-card">
+      <p class="testimonial-text">
+        “After delivery, I was confused about food and weight. Shaily helped me recover
+        slowly without pressure. Her approach is practical, compassionate, and very
+        reassuring for new mothers.”
+      </p>
+      <div class="testimonial-footer">
+        <span class="testimonial-name">Muskan</span>
+        <span class="testimonial-role">Postpartum Care</span>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- STORY CARDS SECTION -->
+<section class="story-section">
+  <h2 class="story-heading">A Journey That Changed Everything</h2>
+
+  <div class="story-grid">
+
+    <div class="story-card card-1">
+  <h3>My Pregnancy Mistake</h3>
+
+  <p>
+    During my pregnancy, I believed that eating “more” was enough.
+    I trusted advice from people around me without truly understanding
+    what my body and my baby actually needed.
+  </p>
+
+  <p>
+    I didn’t realise then that nutrition, balance, and lifestyle play
+    a much deeper role in shaping a healthy pregnancy.
+  </p>
+
+</div>
+
+    <div class="story-card card-2">
+      <p>I entered my pregnancy with zero knowledge about nutrition or what my body truly needed.</p>
+      <p>I simply followed what people around me said.</p>
+      <p>I didn’t understand how important the right food and lifestyle were for me and my baby.</p>
+    </div>
+
+    <div class="story-card card-3">
+      <p>In the 5th month, I was diagnosed with <strong>gestational diabetes</strong>.</p>
+      <p>That diagnosis made me realise how unbalanced my eating habits were.</p>
+      <p>I was relying on too much sugar and ignoring basic nutrients.</p>
+    </div>
+
+    <div class="story-card card-4">
+      <p>As months passed, complications increased.</p>
+      <p>I had low amniotic fluid, frequent doctor visits, scans, and drips.</p>
+      <p>I developed skin allergies, extreme stress, and health issues.</p>
+      <p>I had a premature delivery — my baby arrived at <strong>2.2 kg</strong>.</p>
+    </div>
+
+    <div class="story-card card-5">
+      <p>This experience pushed me to become a <strong>Nutritionist with a purpose</strong>.</p>
+      <p>I wanted to help <strong>women</strong> during the most beautiful phase of their life.</p>
+    </div>
+
+  </div>
+</section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <h2>Contact Me</h2>
+      <p>Connect with me on social platforms or reach out directly.</p>
+      <div class="contact-icons">
+        <a href="https://www.instagram.com/a_nutritionist_mom/?next=%2F" target="_blank" class="contact-icon" title="Instagram">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com/@A_nutritionist_mom" target="_blank" class="contact-icon" title="YouTube">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+        </a>
+      </div>
+      <div class="contact-details">
+        <p><strong>Email:</strong> <a href="mailto:anutritionistmom@gmail.com">anutritionistmom@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 A Nutritionist Mom. All rights reserved.</p>
+  </footer>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // --- Config / Element selectors ---
+  const menuIcon = document.getElementById('menu-icon');       // hamburger button
+  const sidebar = document.getElementById('sidebar');         // sidebar nav
+  const overlayId = 'navbar-overlay';
+  let overlay = document.getElementById(overlayId);          // optional overlay element
+  const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+  const exploreBtn = document.getElementById('explore-btn'); // optional explore button
+  const signinWrapId = 'signin-btn';                         // container that shows Register or user menu
+  const signinWrap = document.getElementById(signinWrapId);
+
+  // --- Ensure overlay exists (useful for mobile) ---
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = overlayId;
+    overlay.className = 'navbar-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(overlay);
+  }
+
+  // --- Sidebar state management ---
+  let isOpen = false;
+
+  // collapse ALL submenu state (used when closing sidebar)
+  function collapseAllSubmenus() {
+    // hide submenus
+    document.querySelectorAll('#sidebar .submenu').forEach(sm => {
+      sm.style.display = 'none';
+      // remove any inline height that may have been used for animation
+      sm.style.height = '';
+      sm.style.maxHeight = '';
+    });
+    // remove open class & reset aria on toggles
+    document.querySelectorAll('#sidebar .dropdown-toggle').forEach(t => {
+      t.classList.remove('open');
+      t.setAttribute('aria-expanded', 'false');
+    });
+    // if you use <details> anywhere, close them too (defensive)
+    document.querySelectorAll('#sidebar details[open]').forEach(d => { d.removeAttribute('open'); });
+  }
+
+  function openSidebar() {
+    if (sidebar) sidebar.classList.add('active');
+    if (overlay) overlay.classList.add('show');
+    if (sidebar) sidebar.setAttribute('aria-hidden','false');
+    if (overlay) overlay.setAttribute('aria-hidden','false');
+    // update icon to cross when open
+    if (menuIcon) { menuIcon.textContent = '✕'; menuIcon.setAttribute('aria-expanded','true'); }
+    isOpen = true;
+  }
+  function closeSidebar() {
+    if (sidebar) sidebar.classList.remove('active');
+    if (overlay) overlay.classList.remove('show');
+    if (sidebar) sidebar.setAttribute('aria-hidden','true');
+    if (overlay) overlay.setAttribute('aria-hidden','true');
+    // update icon to hamburger when closed
+    if (menuIcon) { menuIcon.textContent = '☰'; menuIcon.setAttribute('aria-expanded','false'); }
+    isOpen = false;
+    // collapse all submenu sections & reset toggles
+    collapseAllSubmenus();
+  }
+  function toggleSidebar(){ isOpen ? closeSidebar() : openSidebar(); }
+
+  // --- Menu icon handlers ---
+  if (menuIcon){
+    // ensure an initial glyph if empty
+    if (!menuIcon.textContent || menuIcon.textContent.trim() === '') menuIcon.textContent = '☰';
+    menuIcon.addEventListener('click', (e) => { e.stopPropagation(); toggleSidebar(); });
+    menuIcon.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleSidebar(); } });
+  }
+
+  // --- Overlay click closes sidebar ---
+  if (overlay) {
+    overlay.addEventListener('click', (e) => { closeSidebar(); });
+  }
+
+  // --- Click outside to close sidebar (mobile) ---
+  document.addEventListener('click', (e) => {
+    const target = e.target;
+    if (isOpen && sidebar && !sidebar.contains(target) && menuIcon && target !== menuIcon && !menuIcon.contains(target)) {
+      closeSidebar();
+    }
+  });
+
+  // --- Escape key closes overlays / sidebar / user dropdowns ---
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeSidebar();
+      // also hide any open dropdown menus inside sidebar
+      document.querySelectorAll('#sidebar .submenu').forEach(sm => { sm.style.display = 'none'; });
+      document.querySelectorAll('#sidebar .dropdown-toggle.open').forEach(t => t.classList.remove('open'));
+      // hide user dropdown if exists
+      const userDropdown = document.getElementById('user-dropdown');
+      if (userDropdown) userDropdown.style.display = 'none';
+    }
+  });
+
+  // --- Dropdown toggles (nested) ---
+  if (dropdownToggles && dropdownToggles.length) {
+    dropdownToggles.forEach(toggle => {
+      // ensure keyboard accessible
+      if (!toggle.hasAttribute('tabindex')) toggle.setAttribute('tabindex','0');
+
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const submenu = toggle.nextElementSibling;
+        if (!submenu) return;
+        const shown = submenu.style.display === 'block';
+        submenu.style.display = shown ? 'none' : 'block';
+        toggle.classList.toggle('open', !shown);
+        // keep aria in sync for each toggle
+        toggle.setAttribute('aria-expanded', String(!shown));
+      });
+
+      toggle.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle.click(); }
+      });
+    });
+  }
+
+  // --- Explore button behavior (keeps default navigation, but you can add tracking here) ---
+  if (exploreBtn) {
+    exploreBtn.addEventListener('click', (e) => {
+      // default <a> behaviour will navigate — if you want to override, uncomment below
+      // e.preventDefault();
+      // exploreBtn.classList.add('pulse');
+      // setTimeout(()=> { window.location = exploreBtn.getAttribute('href'); }, 250);
+
+      // Example analytics: using sendBeacon safely
+      try { if (navigator.sendBeacon) { navigator.sendBeacon('/analytics', JSON.stringify({ event:'explore_clicked' })); } } catch (_) {}
+    });
+  }
+
+  // --- User sign-in area: replace Register with username menu if token exists ---
+  function setupUserMenu() {
+    try {
+      const token = localStorage.getItem('token');
+      const userName = localStorage.getItem('userName');
+      if (token && userName && signinWrap) {
+        // Replace signin area with user menu
+        signinWrap.innerHTML = `
+          <div class="user-menu" style="position:relative;">
+            <button id="user-btn" class="user-btn" aria-haspopup="true" aria-expanded="false" style="background: #8b5e3c; color: #fff; border: none; padding:8px 12px; border-radius:8px; cursor:pointer;">
+              ${escapeHtml(userName)} ⯆
+            </button>
+            <div id="user-dropdown" class="dropdown-menu" style="display:none; position:absolute; right:0; top:44px; background:#fff; box-shadow:0 6px 18px rgba(0,0,0,0.08); border-radius:8px; padding:8px; min-width:140px; z-index:6000;">
+              <a href="profile.html" style="display:block;padding:8px 10px;color:#3c2e1e; text-decoration:none;">Profile</a>
+              <a href="#" id="logout-btn" style="display:block;padding:8px 10px;color:#3c2e1e; text-decoration:none;">Logout</a>
+            </div>
+          </div>
+        `;
+
+        const userBtn = document.getElementById('user-btn');
+        const userDropdown = document.getElementById('user-dropdown');
+
+        if (userBtn && userDropdown) {
+          userBtn.addEventListener('click', (ev) => {
+            ev.stopPropagation();
+            const visible = userDropdown.style.display === 'block';
+            userDropdown.style.display = visible ? 'none' : 'block';
+            userBtn.setAttribute('aria-expanded', String(!visible));
+          });
+
+          // close dropdown when clicking elsewhere (scoped handler)
+          document.addEventListener('click', () => { if (userDropdown) userDropdown.style.display = 'none'; });
+
+          // logout handler
+          const logoutBtn = document.getElementById('logout-btn');
+          if (logoutBtn) {
+            logoutBtn.addEventListener('click', (ev) => {
+              ev.preventDefault();
+              localStorage.removeItem('token');
+              localStorage.removeItem('userName');
+              // optionally redirect to homepage or login page:
+              location.reload();
+            });
+          }
+        }
+      }
+    } catch (err) {
+      console.error('User menu setup error', err);
+    }
+  }
+
+  // helper: simple escape of text to prevent injection (used for userName)
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str).replace(/[&<>"'`=\/]/g, function (s) { return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','/':'&#x2F;','`':'&#x60;','=':'&#x3D;'})[s]; });
+  }
+
+  // Run initial user menu setup on load
+  setupUserMenu();
+
+  // optional: keep things consistent on resize
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 900) {
+      // ensure overlay & sidebar closed for desktop layouts (CSS may show sidebar statically)
+      closeSidebar();
+    }
+  });
+
+  // Expose functions for debugging if needed (optional)
+  window._nav = { openSidebar, closeSidebar, toggleSidebar };
+
+});
+
+</script>
+
+</body>
+</html>

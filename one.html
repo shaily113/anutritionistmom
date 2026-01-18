@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>One-on-One Consultation | A Nutritionist Mom</title>
+
+  <!-- global stylesheet that includes navbar styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- page-specific minimal styles -->
+  <style>
+   /* ===============================
+   GLOBAL
+================================ */
+:root {
+  --brand: #8b5e3c;
+  --blush: #fde8e1;
+  --peach: #fff1dc;
+  --sage: #eef6f1;
+  --lavender: #f3eefb;
+  --cream: #fffaf5;
+  --text-dark: #3c2e1e;
+  --shadow-soft: 0 10px 26px rgba(0,0,0,0.08);
+}
+
+body {
+  margin: 0;
+  background: #f9fbfa;
+  font-family: "Poppins", sans-serif;
+  color: var(--text-dark);
+}
+
+/* spacer so fixed navbar doesn't overlap */
+.top-spacer {
+  height: 72px;
+}
+
+/* ===========================
+   FIXED TOP BAR
+   =========================== */
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: #fffaf5;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  z-index: 1000;
+}
+
+.top-bar-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 85px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Brand name */
+.brand-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b5e3c;
+  letter-spacing: 0.3px;
+}
+/* ===============================
+   HERO SECTION
+================================ */
+.consult-hero {
+  padding: 90px 24px 70px;
+  background: linear-gradient(135deg, var(--blush), var(--peach), var(--sage));
+  text-align: center;
+  border-radius: 0 0 40px 40px;
+}
+
+.consult-hero h1 {
+  font-size: 34px;
+  color: var(--brand);
+  max-width: 800px;
+  margin: auto;
+}
+
+.consult-hero p {
+  max-width: 720px;
+  margin: 22px auto 0;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ===============================
+   MAIN CONSULT SECTION
+================================ */
+.consult-section {
+  max-width: 1100px;
+  margin: 70px auto;
+  padding: 42px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  background: var(--cream);
+  border-radius: 30px;
+  box-shadow: var(--shadow-soft);
+}
+
+.consult-text {
+  flex: 1.2;
+  min-width: 280px;
+}
+
+.consult-text h1 {
+  font-size: 26px;
+  color: var(--brand);
+  margin-bottom: 14px;
+}
+
+.consult-text p {
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.consult-text ul {
+  margin-left: 20px;
+  line-height: 1.8;
+}
+
+/* ===============================
+   BOOK SESSION CARD
+================================ */
+.consult-details {
+  flex: 0.9;
+  min-width: 260px;
+  padding: 26px;
+  background: linear-gradient(160deg, var(--lavender), var(--sage));
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.consult-details h3 {
+  color: var(--brand);
+  margin-top: 0;
+}
+
+.consult-details a {
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ===============================
+   WHO IS THIS FOR
+================================ */
+.consult-for {
+  padding: 70px 24px;
+  background: #fff;
+  text-align: center;
+}
+
+.consult-for h2 {
+  color: var(--brand);
+  margin-bottom: 40px;
+}
+
+.for-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.for-card {
+  padding: 20px 22px;
+  border-radius: 18px;
+  font-size: 15px;
+  line-height: 1.6;
+  box-shadow: var(--shadow-soft);
+}
+
+.for-card:nth-child(1) { background: var(--blush); }
+.for-card:nth-child(2) { background: var(--peach); }
+.for-card:nth-child(3) { background: var(--sage); }
+.for-card:nth-child(4) { background: var(--lavender); }
+.for-card:nth-child(5) { background: var(--peach); }
+.for-card:nth-child(6) { background: var(--blush); }
+
+/* ===============================
+   PROCESS SECTION
+================================ */
+.consult-process {
+  padding: 80px 24px;
+  background: #f9fbfa;
+  max-width: 900px;
+  margin: auto;
+}
+
+.consult-process h2 {
+  text-align: center;
+  color: var(--brand);
+  margin-bottom: 30px;
+}
+
+.consult-process ol {
+  line-height: 1.9;
+  font-size: 16px;
+}
+
+.process-note {
+  margin-top: 30px;
+  font-style: italic;
+  color: #5c4a3a;
+}
+
+/* ===============================
+   CTA SECTION
+================================ */
+.consult-cta {
+  padding: 90px 24px;
+  background: linear-gradient(120deg, var(--sage), var(--blush));
+  text-align: center;
+  border-radius: 40px;
+  margin: 60px 24px;
+}
+
+.consult-cta h2 {
+  color: var(--brand);
+  margin-bottom: 16px;
+}
+
+.consult-cta p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+footer {
+  text-align: center;
+  padding: 18px 0;
+  color: #6b5b4d;
+}
+
+/* ===============================
+   MOBILE
+================================ */
+@media (max-width: 768px) {
+  .consult-hero h1 {
+    font-size: 26px;
+  }
+
+  .consult-section {
+    padding: 26px;
+    margin: 40px 16px;
+  }
+
+  .consult-cta {
+    margin: 40px 12px;
+    border-radius: 28px;
+  }
+}
+
+  </style>
+</head>
+<body>
+<!-- FIXED TOP BAR -->
+<header class="top-bar">
+  <div class="top-bar-inner">
+    <span class="brand-name"><strong>A Nutritionist Mom</strong></span>
+  </div>
+</header>
+  <!-- ========== NAVBAR (copied into this page) ========== -->
+  <!-- Menu icon -->
+  <div class="menu-icon" id="menu-icon">☰</div>
+
+  <!-- Sign-in button -->
+  <div class="signin-btn" id="signin-btn">
+    <a href="signin.html" id="signin-link">Register</a>
+  </div>
+
+  <!-- Optional overlay element (script will create if missing) -->
+  <div id="navbar-overlay" class="navbar-overlay" aria-hidden="true"></div>
+
+  <!-- Sidebar navigation -->
+  <nav id="sidebar" aria-hidden="true">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+
+      <li class="dropdown">
+        <span class="dropdown-toggle" tabindex="0">Services ▾</span>
+        <ul class="submenu">
+        
+          <li>
+            <span class="dropdown-toggle" tabindex="0">Pregnancy ▾</span>
+            <ul class="submenu">
+              <li><a href="prenatal.html">Prenatal</a></li>
+              <li><a href="preconception.html">Preconception</a></li>
+              
+              <li><a href="postpartum.html">Postpartum</a></li>
+            </ul>
+          </li>
+
+          <li><a href="one.html">1–1 Consultation</a></li>
+        </ul>
+      </li>
+
+      <li><a href="tips.html">Weekly Tips</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+  <!-- ========== end navbar ========== -->
+<div class="top-spacer" aria-hidden="true"></div>
+
+<!-- MAIN CONTENT -->
+<main>
+<section class="consult-hero">
+  <h1>Personalised 1:1 Guidance for Your Motherhood Journey</h1>
+  <p>
+    Every woman’s body, pregnancy, and recovery is different.
+    This one-on-one consultation is designed to give you clarity,
+    confidence, and calm — without confusion or fear.
+  </p>
+</section>
+<section class="consult-for">
+  <h2>Who Is This Consultation For?</h2>
+
+  <div class="for-grid">
+    <div class="for-card">🤍 Women planning pregnancy and feeling confused about nutrition</div>
+    <div class="for-card">🤍 Pregnant women unsure about what to eat and what to avoid</div>
+    <div class="for-card">🤍 Moms dealing with gestational diabetes, thyroid, or PCOS</div>
+    <div class="for-card">🤍 Postpartum mothers wanting gentle recovery & balance</div>
+    <div class="for-card">🤍 Women overwhelmed by advice from relatives & the internet</div>
+    <div class="for-card">🤍 Anyone who wants calm, personalised guidance</div>
+  </div>
+</section>
+<section class="consult-process">
+  <h2>How the 1:1 Session Works</h2>
+
+  <ol>
+    <li>You reach out via email to book your session.</li>
+    <li>You share your current concerns, phase, and goals.</li>
+    <li>We connect for a focused 30-minute personalised call.</li>
+    <li>You receive clear nutrition & movement guidance.</li>
+    <li>You get WhatsApp support for follow-up questions.</li>
+  </ol>
+
+  <p class="process-note">
+    There is no judgement, no pressure, and no generic advice —
+    only what suits <strong>your body and your life</strong>.
+  </p>
+</section>
+<section class="consult-cta">
+  <h2>You Don’t Have to Figure This Out Alone</h2>
+  <p>
+    If you’re feeling confused, anxious, or overwhelmed —
+    one conversation can bring clarity and relief.
+  </p>
+  <p><strong>Email:</strong> anutritionistmom@gmail.com</p>
+</section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <h2>Contact Me</h2>
+      <p>Connect with me on social platforms or reach out directly.</p>
+      <div class="contact-icons">
+        <a href="https://www.instagram.com/a_nutritionist_mom/?next=%2F" target="_blank" class="contact-icon" title="Instagram">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com/@A_nutritionist_mom" target="_blank" class="contact-icon" title="YouTube">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+        </a>
+      </div>
+      <div class="contact-details">
+        <p><strong>Email:</strong> <a href="mailto:anutritionistmom@gmail.com">anutritionistmom@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+
+    <footer>
+      © 2025 A Nutritionist Mom. All rights reserved.
+    </footer>
+  </main>
+<script>
+(function(){
+  // wait for DOM to be ready
+  function init() {
+    const menuIcon = document.getElementById('menu-icon');
+    const sidebar = document.getElementById('sidebar');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    const overlayId = 'navbar-overlay';
+    let overlay = document.getElementById(overlayId);
+
+    // create overlay if missing
+    if(!overlay){
+      overlay = document.createElement('div');
+      overlay.id = overlayId;
+      overlay.className = 'navbar-overlay';
+      overlay.setAttribute('aria-hidden','true');
+      document.body.appendChild(overlay);
+    }
+
+    // defensive: if required elements are missing, avoid runtime errors
+    if (!menuIcon || !sidebar) {
+      return;
+    }
+
+    // avoid double-init
+    if (menuIcon.dataset.navInit === 'true') return;
+    menuIcon.dataset.navInit = 'true';
+
+    // ensure menu icon has accessible attributes and initial glyph
+    menuIcon.setAttribute('role','button');
+    menuIcon.setAttribute('tabindex','0');
+    if (!menuIcon.textContent || menuIcon.textContent.trim() === '') menuIcon.textContent = '☰';
+    menuIcon.setAttribute('aria-expanded','false');
+
+    let isOpen = false;
+
+    // collapse all submenus and reset toggles (used when closing sidebar)
+    function collapseAllSubmenus(){
+      document.querySelectorAll('#sidebar .submenu').forEach(sm => {
+        sm.style.display = 'none';
+        sm.style.height = '';
+        sm.style.maxHeight = '';
+      });
+      document.querySelectorAll('#sidebar .dropdown-toggle').forEach(t => {
+        t.classList.remove('open');
+        t.setAttribute('aria-expanded','false');
+      });
+      // close any <details> if used inside sidebar (defensive)
+      document.querySelectorAll('#sidebar details[open]').forEach(d => d.removeAttribute('open'));
+    }
+
+    function openSidebar(){
+      sidebar.classList.add('active');
+      overlay.classList.add('show');
+      sidebar.setAttribute('aria-hidden','false');
+      overlay.setAttribute('aria-hidden','false');
+      menuIcon.textContent = '✕';
+      menuIcon.setAttribute('aria-expanded','true');
+      isOpen = true;
+    }
+
+    function closeSidebar(){
+      sidebar.classList.remove('active');
+      overlay.classList.remove('show');
+      sidebar.setAttribute('aria-hidden','true');
+      overlay.setAttribute('aria-hidden','true');
+      menuIcon.textContent = '☰';
+      menuIcon.setAttribute('aria-expanded','false');
+      isOpen = false;
+      // collapse nested menus when sidebar closes
+      collapseAllSubmenus();
+    }
+
+    function toggleSidebar(){ isOpen ? closeSidebar() : openSidebar(); }
+
+    // handlers for menu icon (click & keyboard)
+    menuIcon.addEventListener('click', (e)=> { e.stopPropagation(); toggleSidebar(); });
+    menuIcon.addEventListener('keydown', (e)=> { if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleSidebar(); } });
+
+    // overlay click closes sidebar
+    overlay.addEventListener('click', closeSidebar);
+
+    // click outside closes sidebar
+    document.addEventListener('click', (e)=>{
+      const t = e.target;
+      if(isOpen && sidebar && !sidebar.contains(t) && t !== menuIcon && !menuIcon.contains(t)){
+        closeSidebar();
+      }
+    });
+
+    // escape closes
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && isOpen) closeSidebar(); });
+
+    // setup dropdown toggles (keyboard accessible) and keep aria in sync
+    if(dropdownToggles && dropdownToggles.length){
+      dropdownToggles.forEach(toggle => {
+        if(!toggle.hasAttribute('tabindex')) toggle.setAttribute('tabindex','0');
+        if (toggle.dataset.dropdownInit === 'true') return;
+        toggle.dataset.dropdownInit = 'true';
+
+        // initial aria
+        toggle.setAttribute('aria-expanded','false');
+
+        toggle.addEventListener('click', (e)=>{
+          e.stopPropagation();
+          const submenu = toggle.nextElementSibling;
+          if(!submenu) return;
+          const shown = submenu.style.display === 'block';
+          submenu.style.display = shown ? 'none' : 'block';
+          toggle.classList.toggle('open', !shown);
+          toggle.setAttribute('aria-expanded', String(!shown));
+        });
+
+        toggle.addEventListener('keydown', (e)=> {
+          if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle.click(); }
+        });
+      });
+    }
+
+    // responsive: if switching to wide screen, ensure sidebar closed (keeps state consistent)
+    window.addEventListener('resize', ()=> {
+      if(window.innerWidth >= 900 && isOpen) closeSidebar();
+    });
+
+    // expose simple API for debugging
+    window._nav = { openSidebar, closeSidebar, toggleSidebar, collapseAllSubmenus, isOpen: () => isOpen };
+  } // end init
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>

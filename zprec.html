@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Preconception Wellness | A Nutritionist Mom</title>
+
+  <!-- ===== GLOBAL STYLES (YOUR THEME) ===== -->
+  <style>
+    :root{
+      --accent:#8b5e3c;
+      --bg:#faf4ef;
+      --text:#3b2f27;
+    }
+
+    body{
+      margin:0;
+      font-family:"Poppins",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    /* ================= MENU ICON ================= */
+    .menu-icon{
+      position:fixed;
+      top:20px;
+      left:20px;
+      font-size:28px;
+      cursor:pointer;
+      z-index:1000;
+      background:#fff;
+      padding:6px 12px;
+      border-radius:8px;
+      border:none;
+      box-shadow:0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    /* ================= SIDEBAR ================= */
+    #sidebar{
+      position:fixed;
+      left:-260px;
+      top:0;
+      width:260px;
+      height:100%;
+      background:#fff;
+      box-shadow:2px 0 10px rgba(0,0,0,0.1);
+      transition:left 0.28s ease;
+      z-index:999;
+      padding-top:80px;
+    }
+    #sidebar.active{ left:0; }
+
+    #sidebar ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    #sidebar ul li{
+      padding:12px 22px;
+    }
+
+    #sidebar ul li a{
+      text-decoration:none;
+      color:#4a3c2b;
+      font-weight:500;
+      display:block;
+    }
+
+    #sidebar ul li a:hover{
+      color:var(--accent);
+    }
+
+    .navbar-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.3);
+      display:none;
+      z-index:998;
+    }
+  /* ===== SIDEBAR DIVIDER ===== */
+
+    .sidebar-divider{
+      height:1px;
+      background:#e2d6cc;
+      margin:14px 18px;
+      padding:0 !important;
+    }
+
+    /* ===== SIDEBAR ACTION BUTTONS ===== */
+    .sidebar-actions{
+      display:flex;
+      gap:10px;
+      padding:10px 18px;
+    }
+
+    .sidebar-btn{
+      flex:1;
+      background:#8b5e3c;
+      color:#fff;
+      border:none;
+      padding:8px 0;
+      border-radius:8px;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .sidebar-btn:hover{
+  background:#70492f;
+}
+
+.sidebar-btn.logout{
+  background:#70492f;
+}
+
+.sidebar-btn.logout:hover{
+  background:#70492f;
+}
+
+    .navbar-overlay.show{ display:block; }
+/* ================= PRECONCEPTION  */
+
+.pc-section{
+  max-width:1100px;
+  margin:120px auto 60px;
+  padding:0 24px;
+}
+
+.pc-hero{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+.pc-hero h1{
+  color:var(--accent);
+  font-size:32px;
+  margin-bottom:14px;
+}
+
+.pc-hero p{
+  max-width:720px;
+  margin:0 auto;
+  font-size:16px;
+  line-height:1.8;
+  color:#5a4a3a;
+}
+
+/* ===== GRID ===== */
+.pc-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:26px;
+  margin-top:30px;
+}
+
+/* ===== CARD ===== */
+.pc-card{
+  background:#ffffff;
+  border-radius:18px;
+  padding:30px;
+  box-shadow:0 12px 28px rgba(0,0,0,0.08);
+}
+
+.pc-card h2{
+  color:var(--accent);
+  font-size:22px;
+  margin-bottom:14px;
+}
+
+.pc-card ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.pc-card ul li{
+  position:relative;
+  padding-left:24px;
+  margin-bottom:10px;
+  font-size:15px;
+  color:#4a3c2b;
+}
+
+.pc-card ul li::before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  color:#d4a373;
+  font-weight:700;
+}
+
+/* ===== PRICING ===== */
+.pc-price{
+  text-align:center;
+  margin-top:40px;
+}
+
+.price-old{
+  text-decoration:line-through;
+  color:#8a7a6a;
+  font-size:15px;
+}
+
+.price-new{
+  font-size:22px;
+  font-weight:700;
+  color:var(--accent);
+  margin:8px 0 18px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .pc-hero h1{
+    font-size:26px;
+  }
+}
+
+    /* ================= CTA BUTTON ================= */
+    .cta-wrap{
+      text-align:center;
+      margin-top:28px;
+    }
+
+    .cta-btn{
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      padding:14px 26px;
+      border-radius:30px;
+      font-size:16px;
+      font-weight:600;
+      display:inline-block;
+      transition:background 0.3s ease, transform 0.2s ease;
+    }
+
+    .cta-btn:hover{
+      background:#70492f;
+      transform:translateY(-2px);
+    }
+
+    /* ================= CONTACT SECTION ================= */
+    .contact-section{
+      margin-top:60px;
+      padding-top:30px;
+      border-top:1px solid #e2d6cc;
+      text-align:center;
+    }
+
+    .contact-section h3{
+      color:var(--accent);
+      margin-bottom:6px;
+    }
+
+    .contact-desc{
+      font-size:14px;
+      color:#6b5b4d;
+    }
+
+    .contact-icons{
+      margin-top:12px;
+    }
+
+    .contact-icons a{
+      display:inline-block;
+      margin:0 8px;
+    }
+
+    .contact-icons img{
+      width:26px;
+      height:26px;
+      opacity:0.8;
+      transition:opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .contact-icons img:hover{
+      opacity:1;
+      transform:translateY(-2px);
+    }
+
+    /* ================= FOOTER ================= */
+    .site-footer{
+      margin-top:40px;
+      padding:14px 0;
+      text-align:center;
+      font-size:13px;
+      color:#5a4a3a;
+    }
+  /* ===========================
+   FIXED TOP BAR
+   =========================== */
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: #fffaf5;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  z-index: 1000;
+}
+
+.top-bar-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 85px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Brand name */
+.brand-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b5e3c;
+  letter-spacing: 0.3px;
+}
+  </style>
+</head>
+
+<body>
+ <!-- FIXED TOP BAR -->
+<header class="top-bar">
+  <div class="top-bar-inner">
+    <span class="brand-name"><strong>A Nutritionist Mom</strong></span>
+  </div>
+</header>
+  <div class="page-bg"></div>
+
+
+<!-- MENU ICON -->
+<button class="menu-icon" id="menu-icon">☰</button>
+
+<!-- OVERLAY -->
+<div id="navbar-overlay" class="navbar-overlay"></div>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <ul>
+    <li><a href="dashboard.html">Dashboard</a></li>
+   <li><a href="zpren.html">Prenatal</a></li>
+<li><a href="zpost.html">Postpartum</a></li>
+<li><a href="zprec.html">Preconception</a></li>
+
+<li><a href="z1-1.html">1–1 Consultation</a></li>
+
+    <li class="sidebar-divider"></li>
+
+    <li class="sidebar-actions" id="sidebar-actions" style="display:none;">
+      <button class="sidebar-btn" id="sidebar-profile">Profile</button>
+      <button class="sidebar-btn logout" id="sidebar-logout">Logout</button>
+    </li>
+  </ul>
+</nav>
+<!-- ================= PRECONCEPTION CONTENT ================= -->
+<section class="pc-section">
+
+  <!-- HERO -->
+  <div class="pc-hero">
+    <h1>Preconception Wellness Program</h1>
+    <p>
+      A structured 3-month holistic program designed to prepare your body, hormones,
+      and mind naturally for conception — focusing on nourishment, balance, and calm.
+    </p>
+  </div>
+
+  <!-- OVERVIEW -->
+  <div class="pc-card">
+    <h2>Program Overview</h2>
+    <ul>
+      <li><strong>Duration:</strong> 3 Months</li>
+      <li><strong>Goal:</strong> Prepare your body, hormones, and mind holistically for conception</li>
+      <li>Designed for women planning pregnancy naturally</li>
+      <li>Focus on nutrition, yoga, lifestyle, and emotional wellbeing</li>
+    </ul>
+  </div>
+
+  <!-- WHAT YOU GET -->
+  <div class="pc-grid">
+    <div class="pc-card">
+      <h2>Nutrition & Lifestyle Support</h2>
+      <ul>
+        <li>Personalised fertility-supportive nutrition plan</li>
+        <li>Meal plan flexibility based on daily routine</li>
+        <li>Lifestyle and supplement guidance (only if required)</li>
+        <li>Digestive and hormonal balance focus</li>
+      </ul>
+    </div>
+
+    <div class="pc-card">
+      <h2>Yoga & Mind–Body Care</h2>
+      <ul>
+        <li>Weekday yoga sessions</li>
+        <li>Hormonal balance and pelvic health focus</li>
+        <li>Stress reduction and nervous system calming</li>
+        <li>Gentle practices suitable for beginners</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SUPPORT -->
+  <div class="pc-grid">
+    <div class="pc-card">
+      <h2>Ongoing Guidance & Support</h2>
+      <ul>
+        <li>One-on-one weekend progress review call</li>
+        <li>Continuous WhatsApp support on weekdays</li>
+        <li>Plan updates based on body response</li>
+        <li>Guidance for work stress and daily routines</li>
+      </ul>
+    </div>
+
+    <div class="pc-card">
+      <h2>Results You Can Expect</h2>
+      <ul>
+        <li>Improved hormonal balance</li>
+        <li>Better energy and menstrual cycle health</li>
+        <li>Reduced stress and anxiety</li>
+        <li>Enhanced natural fertility</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="pc-card pc-price">
+    <h2>Investment</h2>
+    
+    <p class="price-new">Price: ₹3,000 – ₹7,000</p>
+
+    <div class="cta-wrap">
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSeU-C5VGR3JxR4a8iJJEov6rvwwe5swS9-kk5KUzZ2L9-lhhg/viewform"
+        target="_blank"
+        class="cta-btn">
+        Tell Us About Your Personal Conditions
+      </a>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ================= CONTACT SECTION ================= -->
+<section class="contact-section">
+  <h3>Contact Me</h3>
+  <p class="contact-desc">
+    Connect with me on social platforms or reach out directly for queries and consultation.
+  </p>
+
+  <div class="contact-icons">
+    <a href="https://www.instagram.com/a_nutritionist_mom/" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg">
+    </a>
+    <a href="mailto:shailyjain@gmail.com">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg">
+    </a>
+    <a href="https://www.youtube.com/@A_nutritionist_mom" target="_blank">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg">
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  © 2025 A Nutritionist Mom. All rights reserved.
+</footer>
+
+<!-- ================= SCRIPT ================= -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase;
+
+  const supabaseClient = createClient(
+    "https://kajqxzywlanjmjrwseyt.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImthanF4enl3bGFuam1qcndzZXl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3NTAzMzUsImV4cCI6MjA4MjMyNjMzNX0.kLtQOJDx2NEYagClt_AwjuoUl1pzXGh6mM7Hg8I9AvA"
+  );
+/* ===== AUTH CHECK (SUPABASE) ===== */
+async function requireAuth() {
+  const { data } = await supabaseClient.auth.getSession();
+  if (!data.session) {
+    window.location.href = "signin.html";
+    return false;
+  }
+  return true;
+}
+
+requireAuth();
+
+/* ===== IDLE TIMEOUT (SUPABASE LOGOUT) ===== */
+let idleTimer;
+const IDLE_LIMIT = 10 * 60 * 1000; // 10 min
+
+function resetIdleTimer() {
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(async () => {
+    await supabaseClient.auth.signOut();
+    window.location.href = "signin.html";
+  }, IDLE_LIMIT);
+}
+
+["mousemove","keydown","click","scroll","touchstart"].forEach(evt => {
+  document.addEventListener(evt, resetIdleTimer, true);
+});
+
+resetIdleTimer();
+
+/* ===== SIDEBAR TOGGLE ===== */
+const menuIcon = document.getElementById("menu-icon");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("navbar-overlay");
+let isOpen = false;
+
+function openSidebar() {
+  sidebar.classList.add("active");
+  overlay.classList.add("show");
+  menuIcon.textContent = "✕";
+  isOpen = true;
+}
+
+function closeSidebar() {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("show");
+  menuIcon.textContent = "☰";
+  isOpen = false;
+}
+
+menuIcon.addEventListener("click", () => {
+  isOpen ? closeSidebar() : openSidebar();
+});
+
+overlay.addEventListener("click", closeSidebar);
+
+document.addEventListener("click", (e) => {
+  if (isOpen && !sidebar.contains(e.target) && !menuIcon.contains(e.target)) {
+    closeSidebar();
+  }
+});
+
+/* ===== SIDEBAR PROFILE / LOGOUT (SUPABASE) ===== */
+const sidebarActions = document.getElementById("sidebar-actions");
+const sidebarProfile = document.getElementById("sidebar-profile");
+const sidebarLogout = document.getElementById("sidebar-logout");
+
+async function setupSidebarAuth() {
+  const { data } = await supabaseClient.auth.getSession();
+
+  if (data.session) {
+    sidebarActions.style.display = "flex";
+
+    sidebarProfile.onclick = () => {
+      window.location.href = "user-details.html";
+    };
+
+    sidebarLogout.onclick = async () => {
+      await supabaseClient.auth.signOut();
+      window.location.href = "signin.html";
+    };
+  }
+}
+
+setupSidebarAuth();
+</script>
+
+</body>
+</html>

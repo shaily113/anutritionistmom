@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hormonal Balance for Women</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --accent: #8b5e3c;
+      --bg: #faf4ef;
+      --card: #ffffff;
+      --text: #3c2e1e;
+      --muted: #7a6754;
+      --shadow: 0 4px 14px rgba(0,0,0,.08);
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+ /* ===========================
+   FIXED TOP BAR
+   =========================== */
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: #fffaf5;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  z-index: 1000;
+}
+
+.top-bar-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 85px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Brand name */
+.brand-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b5e3c;
+  letter-spacing: 0.3px;
+}
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      color: var(--accent);
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      color: var(--accent);
+      font-size: 24px;
+      margin: 40px 0 20px;
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* INFO BOX */
+    .info-box {
+      background: var(--card);
+      padding: 23px;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      margin-top: 25px;
+    }
+
+    .info-box ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    .info-box li {
+      margin-bottom: 8px;
+      
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 22px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    /* CTA */
+    .cta {
+      background: var(--accent);
+      color: white;
+      padding: 35px 25px;
+      border-radius: 18px;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .cta h2 {
+      color: white;
+      margin-top: 0;
+    }
+
+    .cta p {
+      color: #f3ede8;
+      margin-bottom: 20px;
+    }
+
+    .cta button {
+      background: white;
+      color: var(--accent);
+      border: none;
+      padding: 12px 28px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    /* TABLET & UP */
+    @media (min-width: 768px) {
+      h1 {
+        font-size: 38px;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+      /* MENU ICON */
+.menu-icon {
+  position:fixed;
+  top:20px;
+  left:20px;
+  font-size:28px;
+  cursor:pointer;
+  z-index:1000;
+  background:#fff;
+  padding:6px 12px;
+  border-radius:8px;
+  
+/* REMOVE BLACK BORDER */
+  border: none;
+  outline: none;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* REGISTER BUTTON */
+.signin-btn {
+  position:fixed;
+  top:20px;
+  right:25px;
+  z-index:1000;
+  background:#8b5e3c;
+  padding:8px 16px;
+  border-radius:8px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+.signin-btn a {
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+}
+
+/* SIDEBAR MENU */
+#sidebar {
+  position:fixed;
+  left:-260px;
+  top:0;
+  width:260px;
+  height:100%;
+  background:#fff;
+  box-shadow:2px 0 10px rgba(0,0,0,0.1);
+  transition:left 0.28s ease;
+  z-index:999;
+  padding-top:80px;
+}
+#sidebar.active { left:0; }
+
+#sidebar ul { list-style:none; padding:0; margin:0; }
+#sidebar ul li { padding:12px 22px; cursor:pointer; }
+
+/* DROPDOWN TOGGLE (Services, Weight Management, Pregnancy) */
+#sidebar .dropdown-toggle {
+  color:#4a3c2b;        /* Same color as normal links */
+  font-weight:500;
+  display:block;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+#sidebar .dropdown-toggle:hover {
+  color:#8b5e3c;        /* Same hover color as links */
+}
+
+/* Normal links */
+#sidebar ul li > a { 
+  color:#4a3c2b; 
+  text-decoration:none; 
+  font-weight:500; 
+  display:block; 
+}
+#sidebar ul li a:hover { color:#8b5e3c; }
+
+/* SUBMENU */
+.submenu {
+  display:none;
+  padding-left:15px;
+  margin-top:8px;
+}
+.submenu li { padding:8px 0; }
+
+/* Open state */
+.open + .submenu {
+  display:block;
+}
+
+/* Responsive */
+@media (max-width:768px) {
+  .consult-section { 
+    margin:100px 16px; 
+    flex-direction:column; 
+    text-align:center; 
+  }
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  background-color: #f9f4f1;
+  text-align: center;
+  padding: 10px 0;
+}
+.contact-container h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.contact-container p {
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+.contact-icons { margin-top: 10px; }
+.contact-icon img {
+  width: 26px;
+  height: 26px;
+  margin: 0 5px;
+}
+
+/* FOOTER */
+footer {
+  background-color: #f9f4f1;
+  text-align: center;
+  padding: 2px 0;
+  font-size: 13px;
+  color: #333;
+  border-top: 1px solid #ddd;
+}
+/* ===========================
+   MOBILE
+   =========================== */
+
+@media (max-width: 768px) {
+  .about-hero {
+    height: 40vh;
+  }
+}
+  </style>
+</head>
+
+<body>
+ <!-- FIXED TOP BAR -->
+<header class="top-bar">
+  <div class="top-bar-inner">
+    <span class="brand-name"><strong>A Nutritionist Mom</strong></span>
+  </div>
+</header>
+
+  <!-- ========== NAVBAR (copied into this page) ========== -->
+  <!-- Menu icon -->
+  <div class="menu-icon" id="menu-icon">☰</div>
+
+  <!-- Sign-in button -->
+  <div class="signin-btn" id="signin-btn">
+    <a href="signin.html" id="signin-link">Register</a>
+  </div>
+
+  <!-- Optional overlay element (script will create if missing) -->
+  <div id="navbar-overlay" class="navbar-overlay" aria-hidden="true"></div>
+
+  <!-- Sidebar navigation -->
+  <nav id="sidebar" aria-hidden="true">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+
+      <li class="dropdown">
+        <span class="dropdown-toggle" tabindex="0">Services ▾</span>
+        <ul class="submenu">
+          <li>
+            <span class="dropdown-toggle" tabindex="0">Weight Management ▾</span>
+            <ul class="submenu">
+              <li><a href="weight-gain.html">Weight Gain</a></li>
+              <li><a href="weight-loss.html">Weight Loss</a></li>
+              <li><a href="hormonal.html">Hormonal Balance</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <span class="dropdown-toggle" tabindex="0">Pregnancy ▾</span>
+            <ul class="submenu">
+              <li><a href="preconception.html">Preconception</a></li>
+              <li><a href="prenatal.html">Prenatal</a></li>
+              <li><a href="postpartum.html">Postpartum</a></li>
+            </ul>
+          </li>
+
+          <li><a href="one.html">1–1 Consultation</a></li>
+        </ul>
+      </li>
+
+      <li><a href="tips.html">Weekly Tips</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+  <!-- ========== end navbar ========== -->
+
+  <!-- spacer so content isn't under fixed navbar -->
+  <div class="top-spacer" aria-hidden="true"></div>
+
+  <div class="container">
+
+    <h1>Hormonal Balance for Women</h1>
+    <p>
+      Hormonal imbalance can affect menstrual health, fertility, weight,
+      mood, and overall well-being. Our nutrition-based approach focuses
+      on restoring balance naturally and sustainably.
+    </p>
+
+    <div class="info-box">
+      
+      <ul>
+        <li>PCOD / PCOS</li>
+        <li>Thyroid disorders</li>
+        <li>Irregular periods</li>
+        <li>PMS & mood swings</li>
+        <li>Hormone-related weight gain</li>
+      </ul>
+    </div>
+
+    <h2>Conditions We Address</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>PCOD / PCOS</h3>
+        <p>
+          Nutrition strategies to improve insulin resistance,
+          regulate cycles, and support hormonal balance.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Thyroid Health</h3>
+        <p>
+          Diet plans that support metabolism, energy levels,
+          and healthy weight management.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Menstrual Health</h3>
+        <p>
+          Support for irregular periods, cramps,
+          and hormonal discomfort.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>PMS & Emotional Balance</h3>
+        <p>
+          Reduce mood swings, bloating,
+          cravings, and fatigue through food.
+        </p>
+      </div>
+    </div>
+
+    <h2>Our Approach</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Root-Cause Focus</h3>
+        <p>
+          We identify nutritional and lifestyle triggers
+          instead of temporary fixes.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Personalized Plans</h3>
+        <p>
+          Simple Indian meals designed for your
+          hormones, age, and routine.
+        </p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <h2>Start Your Healing Journey</h2>
+      <p>
+        Balance your hormones naturally with guided
+        nutrition support designed for women.
+      </p>
+      <button onclick="bookConsultation()">Book Consultation</button>
+    </div>
+
+  </div>
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <h2>Contact Me</h2>
+      <p>Connect with me on social platforms or reach out directly.</p>
+      <div class="contact-icons">
+        <a href="https://www.instagram.com/a_nutritionist_mom/?next=%2F" target="_blank" class="contact-icon" title="Instagram">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com/@A_nutritionist_mom" target="_blank" class="contact-icon" title="YouTube">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+        </a>
+      </div>
+      <div class="contact-details">
+        <p><strong>Email:</strong> <a href="mailto:anutritionistmom@gmail.com">anutritionistmom@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 A Nutritionist Mom. All rights reserved.</p>
+  </footer>
+  <script>
+    function bookConsultation() {
+      window.location.href = "one.html";
+    }
+    (
+  function(){
+
+  const menuIcon = document.getElementById("menu-icon");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("navbar-overlay");
+  const dropdowns = document.querySelectorAll(".dropdown-toggle");
+  const signinWrap = document.getElementById("signin-btn");
+  let isOpen = false;
+
+  // COLLAPSE ALL SUBMENUS (new)
+  function collapseAllSubmenus(){
+    document.querySelectorAll('#sidebar .submenu').forEach(sm => {
+      sm.style.display = 'none';
+      sm.style.maxHeight = '';
+      sm.classList.remove('active');
+    });
+    document.querySelectorAll('#sidebar .dropdown-toggle').forEach(t => {
+      t.classList.remove('open');
+      t.setAttribute('aria-expanded', 'false');
+    });
+    document.querySelectorAll('#sidebar details[open]').forEach(d => d.removeAttribute('open'));
+  }
+
+  function openSidebar(){
+    sidebar.classList.add("active");
+    if (overlay) overlay.classList.add("show");
+    isOpen = true;
+    // show cross when open (new)
+    if (menuIcon) { menuIcon.textContent = "✕"; menuIcon.setAttribute('aria-expanded','true'); }
+  }
+
+  function closeSidebar(){
+    sidebar.classList.remove("active");
+    if (overlay) overlay.classList.remove("show");
+    isOpen = false;
+    // show hamburger when closed (new)
+    if (menuIcon) { menuIcon.textContent = "☰"; menuIcon.setAttribute('aria-expanded','false'); }
+    // collapse all submenus when sidebar closes (new)
+    collapseAllSubmenus();
+  }
+
+  function toggleSidebar(){
+    isOpen ? closeSidebar() : openSidebar();
+    // (icon handled in openSidebar/closeSidebar)
+  }
+
+  // guard in case menuIcon or sidebar missing
+  if (!menuIcon || !sidebar) return;
+
+  // ensure accessible attributes and initial glyph
+  menuIcon.setAttribute('role','button');
+  menuIcon.setAttribute('tabindex','0');
+  if (!menuIcon.textContent || menuIcon.textContent.trim() === '') menuIcon.textContent = '☰';
+  menuIcon.setAttribute('aria-expanded', 'false');
+
+  menuIcon.addEventListener("click", (e)=>{
+    e.stopPropagation();
+    toggleSidebar();
+  });
+
+  // keyboard support for menu icon
+  menuIcon.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); menuIcon.click(); }
+  });
+
+  if (overlay) overlay.addEventListener("click", closeSidebar);
+
+  document.addEventListener("click", (e)=>{
+    if(isOpen && !sidebar.contains(e.target) && !menuIcon.contains(e.target)){
+      closeSidebar();
+    }
+  });
+
+  // Dropdown logic (unchanged behavior, kept as-is)
+  dropdowns.forEach(btn=>{
+    btn.addEventListener("click", function(e){
+      e.stopPropagation();
+      const submenu = this.nextElementSibling;
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+      this.classList.toggle("open");
+      // keep aria in sync
+      this.setAttribute('aria-expanded', String(submenu.style.display === "block"));
+    });
+  });
+
+  // Logged-in user menu (unchanged)
+  function loadUser(){
+    const token = localStorage.getItem("token");
+    const name = localStorage.getItem("userName");
+
+    if(token && name){
+      signinWrap.innerHTML = `
+        <div class="user-menu">
+          <button id="user-btn" class="user-btn">${name} ▾</button>
+          <div id="user-dropdown" class="user-dropdown">
+            <a href="profile.html">Profile</a>
+            <a href="#" id="logout-btn">Logout</a>
+          </div>
+        </div>
+      `;
+
+      const btn = document.getElementById("user-btn");
+      const dropdown = document.getElementById("user-dropdown");
+      const logout = document.getElementById("logout-btn");
+
+      btn.addEventListener("click", (e)=>{
+        e.stopPropagation();
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      });
+
+      document.addEventListener("click", ()=>{
+        dropdown.style.display = "none";
+      });
+
+      logout.addEventListener("click", ()=>{
+        localStorage.removeItem("token");
+        localStorage.removeItem("userName");
+        location.reload();
+      });
+    }
+  }
+
+  loadUser();
+
+})();
+  </script>
+
+</body>
+</html>

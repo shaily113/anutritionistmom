@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Postpartum Nutrition | A Nutritionist Mom</title>
+  <link rel="stylesheet" href="style.css">
+ 
+    <style>
+:root{
+  --primary:#8b5e3c;
+  --secondary:#e9a7b0;
+  --accent:#f6c1a2;
+  --dark:#3c2e1e;
+  --light:#fff7f1;
+}
+
+body{
+  background:linear-gradient(180deg,#fff7f1,#fde8d7);
+  font-family:"Poppins",sans-serif;
+}
+    /* ===========================
+   FIXED TOP BAR
+   =========================== */
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: #fffaf5;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  z-index: 1000;
+}
+
+.top-bar-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 85px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Brand name */
+.brand-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b5e3c;
+  letter-spacing: 0.3px;
+}
+/* HERO */
+.postpartum-hero{
+  min-height:90vh;
+  background:
+    linear-gradient(rgba(255,29,29,.45),rgba(57,10,10,.45)),
+    url("postpartum-hero.webp") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding:120px 8%;
+  color:#fff;
+}
+
+.hero-content{
+  max-width:650px;
+}
+
+.hero-badge{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--accent),var(--secondary));
+  padding:8px 22px;
+  border-radius:30px;
+  font-size:14px;
+  margin-bottom:18px;
+}
+
+.hero-content h1{
+  font-size:42px;
+  line-height:1.2;
+  margin-bottom:16px;
+}
+
+.hero-content p{
+  font-size:18px;
+  opacity:.95;
+}
+
+/* INTRO */
+.postpartum-intro{
+  padding:80px 8%;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:60px;
+  background:#fff;
+}
+
+.postpartum-intro h2{
+  font-size:30px;
+  color:var(--primary);
+  margin-bottom:16px;
+}
+
+.postpartum-intro p{
+  color:var(--dark);
+  line-height:1.8;
+  margin-bottom:14px;
+}
+
+.postpartum-intro img{
+  width:75%;
+  border-radius:22px;
+  box-shadow:0 12px 30px rgba(0,0,0,.15);
+}
+
+/* PROGRAM */
+.program{
+  padding:80px 8%;
+  background:linear-gradient(135deg,#fff3e8,#fde8d7);
+}
+
+.program h2{
+  text-align:center;
+  font-size:32px;
+  color:var(--primary);
+  margin-bottom:45px;
+}
+
+.program-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+
+.program-card{
+  background:#fff;
+  padding:32px;
+  border-radius:24px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.program-card h3{
+  color:var(--primary);
+  margin-bottom:12px;
+}
+
+.program-card ul{
+  padding-left:18px;
+}
+
+.program-card li{
+  margin-bottom:8px;
+  color:var(--dark);
+  font-size:14px;
+}
+
+/* PRICE STRIP */
+.price-strip{
+  margin-top:18px;
+  background:linear-gradient(135deg,var(--accent),var(--secondary));
+  color:#fff;
+  padding:14px;
+  border-radius:18px;
+  text-align:center;
+  font-weight:500;
+}
+
+/* CTA */
+.cta{
+  padding:80px 8%;
+  text-align:center;
+  background:linear-gradient(135deg,#b999807a,#61544c);
+  color:#fff;
+}
+
+.cta h2{
+  font-size:30px;
+  margin-bottom:14px;
+}
+
+.cta p{
+  font-size:17px;
+  margin-bottom:25px;
+}
+
+.cta a{
+  display:inline-block;
+  background:#fff;
+  color:var(--primary);
+  padding:14px 34px;
+  border-radius:40px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .postpartum-intro{
+    grid-template-columns:1fr;
+  }
+  .hero-content h1{
+    font-size:32px;
+  }
+}
+</style>
+</head>
+<body>
+<!-- FIXED TOP BAR -->
+<header class="top-bar">
+  <div class="top-bar-inner">
+    <span class="brand-name"><strong>A Nutritionist Mom</strong></span>
+  </div>
+</header>
+  <!-- ========== NAVBAR (copied into this page) ========== -->
+  <!-- Menu icon -->
+  <div class="menu-icon" id="menu-icon">☰</div>
+
+  <!-- Sign-in button -->
+  <div class="signin-btn" id="signin-btn">
+    <a href="signin.html" id="signin-link">Register</a>
+  </div>
+
+  <!-- Optional overlay element (script will create if missing) -->
+  <div id="navbar-overlay" class="navbar-overlay" aria-hidden="true"></div>
+
+  <!-- Sidebar navigation -->
+  <nav id="sidebar" aria-hidden="true">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+
+      <li class="dropdown">
+        <span class="dropdown-toggle" tabindex="0">Services ▾</span>
+        <ul class="submenu">
+          
+          <li>
+            <span class="dropdown-toggle" tabindex="0">Pregnancy ▾</span>
+            <ul class="submenu">
+              <li><a href="prenatal.html">Prenatal</a></li>
+              <li><a href="preconception.html">Preconception</a></li>
+              
+              <li><a href="postpartum.html">Postpartum</a></li>
+            </ul>
+          </li>
+
+          <li><a href="one.html">1–1 Consultation</a></li>
+        </ul>
+      </li>
+
+      <li><a href="tips.html">Weekly Tips</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+  <!-- ========== end navbar ========== -->
+<!-- HERO -->
+<section class="postpartum-hero">
+  <div class="hero-content">
+    <span class="hero-badge">Postpartum Recovery Program</span>
+    <h1>Gentle Healing, Nourishment & Strength After Birth</h1>
+    <p>
+      The postpartum phase is a time of deep recovery. This program supports
+      healing, emotional well-being, and gradual strength rebuilding —
+      without pressure or unrealistic expectations.
+    </p>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="postpartum-intro">
+  <div>
+    <h2>Why Postpartum Care Matters</h2>
+    <p>
+      After childbirth, a mother’s body undergoes major hormonal, physical
+      and emotional changes. Proper postpartum care helps restore strength,
+      prevent long-term nutrient depletion, and support mental well-being.
+    </p>
+    <p>
+      This program is designed to help mothers heal safely, feel supported,
+      and regain confidence in their bodies — step by step.
+    </p>
+  </div>
+
+  <img src="postpartum.jpg" alt="Postpartum Recovery Support">
+</section>
+
+<!-- PROGRAM -->
+<section class="program">
+  <h2>Postpartum Recovery Program</h2>
+
+  <div class="program-grid">
+    <div class="program-card">
+      <h3>Program Focus</h3>
+      <ul>
+        <li>Healing and nourishment after delivery</li>
+        <li>Core & pelvic floor recovery</li>
+        <li>Lactation-friendly nutrition</li>
+        <li>Emotional and lifestyle support</li>
+      </ul>
+    </div>
+
+    <div class="program-card">
+      <h3>What’s Included</h3>
+      <ul>
+        <li>Postpartum-safe yoga (core & pelvic floor)</li>
+        <li>Lactation-supportive nutrition guidance</li>
+        <li>Gradual weight & strength recovery</li>
+        <li>One-on-one consultations</li>
+        <li>WhatsApp support</li>
+      </ul>
+    </div>
+
+    <div class="program-card">
+      <h3>Who This Is For</h3>
+      <ul>
+        <li>New mothers (normal or C-section)</li>
+        <li>Breastfeeding or non-breastfeeding mothers</li>
+        <li>Mothers feeling exhausted or overwhelmed</li>
+        <li>Women seeking structured recovery</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="price-strip">
+    Investment: ₹6,000 – ₹12,000 <br>
+    <small>(Offered privately based on individual needs)</small>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2>Care for the Mother, Not Just the Baby</h2>
+  <p>
+    Exact pricing of all services and programs is discussed
+    after a free discovery consultation.
+  </p>
+  <a href="signin.html">Register / Book a Free Consultation</a>
+</section>
+
+<!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <h2>Contact Me</h2>
+      <p>Connect with me on social platforms or reach out directly.</p>
+      <div class="contact-icons">
+        <a href="https://www.instagram.com/a_nutritionist_mom/?next=%2F" target="_blank" class="contact-icon" title="Instagram">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com/@A_nutritionist_mom" target="_blank" class="contact-icon" title="YouTube">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+        </a>
+      </div>
+      <div class="contact-details">
+        <p><strong>Email:</strong> <a href="mailto:anutritionistmom@gmail.com">anutritionistmom@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+    <footer>
+      © 2025 A Nutritionist Mom. All rights reserved.
+    </footer>
+<script>
+(function () {
+  function init() {
+    const menuIcon = document.getElementById('menu-icon');
+    const sidebar = document.getElementById('sidebar');
+    const logoutBtn = document.getElementById('logoutBtn') || document.getElementById('logout-btn') || null;
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    const overlayId = 'navbar-overlay';
+    let overlay = document.getElementById(overlayId);
+
+    // safe-guard: ensure overlay exists even if sidebar/menu missing
+    function ensureOverlay() {
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = overlayId;
+        overlay.className = 'navbar-overlay';
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(overlay);
+      }
+    }
+
+    // collapse ALL submenu state (used when closing sidebar)
+    function collapseAllSubmenus() {
+      // hide submenus
+      document.querySelectorAll('#sidebar .submenu').forEach(sm => {
+        sm.style.display = 'none';
+        // remove any inline height that may have been used for animation
+        sm.style.height = '';
+        sm.style.maxHeight = '';
+      });
+      // remove open class & reset aria on toggles
+      document.querySelectorAll('#sidebar .dropdown-toggle').forEach(t => {
+        t.classList.remove('open');
+        t.setAttribute('aria-expanded', 'false');
+      });
+      // if you use <details> anywhere, close them too (defensive)
+      document.querySelectorAll('#sidebar details[open]').forEach(d => { d.removeAttribute('open'); });
+    }
+
+    // If required elements missing, avoid throwing errors (safe no-op)
+    if (!menuIcon || !sidebar) {
+      ensureOverlay();
+      // also ensure any stray open submenus are collapsed (defensive)
+      if (document.getElementById('sidebar')) collapseAllSubmenus();
+      return;
+    }
+
+    // Prevent double-init
+    if (menuIcon.dataset.navInit === 'true') return;
+    menuIcon.dataset.navInit = 'true';
+
+    ensureOverlay();
+
+    // State
+    let isOpen = false;
+
+    // Open / Close helpers
+    function openSidebar() {
+      sidebar.classList.add('active');
+      overlay.classList.add('show');
+      sidebar.setAttribute('aria-hidden', 'false');
+      overlay.setAttribute('aria-hidden', 'false');
+      menuIcon.textContent = '✕';
+      menuIcon.setAttribute('aria-expanded', 'true');
+      isOpen = true;
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('show');
+      sidebar.setAttribute('aria-hidden', 'true');
+      overlay.setAttribute('aria-hidden', 'true');
+      menuIcon.textContent = '☰';
+      menuIcon.setAttribute('aria-expanded', 'false');
+      isOpen = false;
+
+      // NEW: collapse all submenu sections & reset toggles
+      collapseAllSubmenus();
+    }
+
+    function toggleSidebar() { isOpen ? closeSidebar() : openSidebar(); }
+
+    // Make menuIcon keyboard accessible and set initial state
+    menuIcon.setAttribute('role', 'button');
+    menuIcon.setAttribute('tabindex', '0');
+    menuIcon.setAttribute('aria-expanded', 'false');
+    if (!menuIcon.textContent || menuIcon.textContent.trim() === '') menuIcon.textContent = '☰';
+
+    // Click & keyboard on hamburger
+    menuIcon.addEventListener('click', (e) => { e.stopPropagation(); toggleSidebar(); });
+    menuIcon.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleSidebar(); } });
+
+    // Overlay click closes
+    overlay.addEventListener('click', () => { if (isOpen) closeSidebar(); });
+
+    // Click outside closes (safe guards)
+    document.addEventListener('click', (e) => {
+      const t = e.target;
+      if (isOpen && sidebar && !sidebar.contains(t) && !menuIcon.contains(t) && t !== menuIcon) {
+        closeSidebar();
+      }
+    });
+
+    // Escape closes
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && isOpen) closeSidebar(); });
+
+    // Setup nested dropdown toggles
+    if (dropdownToggles && dropdownToggles.length) {
+      dropdownToggles.forEach(toggle => {
+        if (!toggle.hasAttribute('tabindex')) toggle.setAttribute('tabindex', '0');
+        if (toggle.dataset.dropdownInit === 'true') return;
+        toggle.dataset.dropdownInit = 'true';
+
+        // keep aria in sync when toggling
+        toggle.setAttribute('aria-expanded', 'false');
+
+        toggle.addEventListener('click', (ev) => {
+          ev.stopPropagation();
+          const submenu = toggle.nextElementSibling;
+          if (!submenu) return;
+          const shown = submenu.style.display === 'block';
+          // toggle
+          submenu.style.display = shown ? 'none' : 'block';
+          toggle.classList.toggle('open', !shown);
+          toggle.setAttribute('aria-expanded', String(!shown));
+        });
+
+        toggle.addEventListener('keydown', (ev) => {
+          if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); toggle.click(); }
+        });
+      });
+    }
+
+    // Responsive: if switching to wide screen, close overlay for CSS-driven layout
+    window.addEventListener('resize', () => { if (window.innerWidth >= 900 && isOpen) closeSidebar(); });
+
+    // Optional logout button handler (safe if missing)
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', (ev) => {
+        ev.preventDefault();
+        try {
+          localStorage.removeItem('isLoggedIn');
+          localStorage.removeItem('token');
+          localStorage.removeItem('userName');
+        } catch (_) {}
+        location.reload();
+      });
+    }
+
+    // expose api for debugging
+    window._nav = { openSidebar, closeSidebar, toggleSidebar, isOpen: () => isOpen, collapseAllSubmenus };
+  } // end init
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+
+</body>
+</html>

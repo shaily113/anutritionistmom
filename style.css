@@ -1,0 +1,287 @@
+    body { margin:0; background:#f9fbfa; font-family:"Poppins",sans-serif; font-size: 16px; }
+
+    /* PAGE LAYOUT */
+    .consult-section { 
+      max-width:1100px; 
+      margin:120px auto; 
+      padding:0 24px; 
+      display:flex; 
+      gap:30px; 
+      align-items:flex-start; 
+      flex-wrap:wrap; 
+    }
+    .consult-text { flex:1.2; min-width:280px; }
+    .consult-text h1 { color:#8b5e3c; font-size:26px; margin-bottom:12px; }
+    .consult-text p { color:#3c2e1e; line-height:1.7; font-size:16px; }
+
+   .consult-details { 
+      flex:0.8; 
+      background:#fff; 
+      border-radius:12px; 
+      padding:18px; 
+      box-shadow:0 6px 18px rgba(0,0,0,0.06); 
+      min-width:260px; 
+    }
+    .consult-details h3 { margin-top:0; color:#6b5b4d; }
+/* ===========================
+   FIXED TOP BAR
+   =========================== */
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: #fffaf5;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  z-index: 1000;
+}
+
+.top-bar-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Brand name */
+.brand-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b5e3c;
+  letter-spacing: 0.3px;
+}
+
+
+   /* MENU ICON */
+.menu-icon {
+  position:fixed;
+  top:20px;
+  left:20px;
+  font-size:28px;
+  cursor:pointer;
+  z-index:1000;
+  background:#fff;
+  padding:6px 12px;
+  border-radius:8px;
+  
+/* REMOVE BLACK BORDER */
+  border: none;
+  outline: none;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* REGISTER BUTTON */
+.signin-btn {
+  position:fixed;
+  top:20px;
+  right:25px;
+  z-index:1000;
+  background:#8b5e3c;
+  padding:8px 16px;
+  border-radius:8px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+.signin-btn a {
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+}
+
+/* SIDEBAR MENU */
+#sidebar {
+  position:fixed;
+  left:-260px;
+  top:0;
+  width:260px;
+  height:100%;
+  background:#fff;
+  box-shadow:2px 0 10px rgba(0,0,0,0.1);
+  transition:left 0.28s ease;
+  z-index:999;
+  padding-top:80px;
+}
+#sidebar.active { left:0; }
+
+#sidebar ul { list-style:none; padding:0; margin:0; }
+#sidebar ul li { padding:12px 22px; cursor:pointer; }
+
+/* DROPDOWN TOGGLE (Services, Weight Management, Pregnancy) */
+#sidebar .dropdown-toggle {
+  color:#4a3c2b;        /* Same color as normal links */
+  font-weight:500;
+  display:block;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+#sidebar .dropdown-toggle:hover {
+  color:#8b5e3c;        /* Same hover color as links */
+}
+
+/* Normal links */
+#sidebar ul li > a { 
+  color:#4a3c2b; 
+  text-decoration:none; 
+  font-weight:500; 
+  display:block; 
+}
+#sidebar ul li a:hover { color:#8b5e3c; }
+
+/* SUBMENU */
+.submenu {
+  display:none;
+  padding-left:15px;
+  margin-top:8px;
+}
+.submenu li { padding:8px 0; }
+
+/* Open state */
+.open + .submenu {
+  display:block;
+}
+
+/* Responsive */
+@media (max-width:768px) {
+  .consult-section { 
+    margin:100px 16px; 
+    flex-direction:column; 
+    text-align:center; 
+  }
+}
+
+/* HERO SECTION */
+.hero {
+  min-height: 100vh;              /* better than height for mobile */
+  width: 100%;
+
+  background-image: url("wide\ pregnant\ lady.png"); /* ✅ correct path */
+  background-size: cover;         /* 🔑 fits screen */
+  background-position: center;    /* 🔑 keeps subject centered */
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: #8b5e3c;                 /* ✅ unchanged */
+  position: relative;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .hero {
+    min-height: 360px;
+    max-height: 400px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .hero {
+    min-height: 260px;
+    max-height: 300px;
+  }
+}
+/* SOFT OVERLAY (FIXED) */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(243, 235, 229, 0.4); /* ✅ valid overlay */
+}
+
+/* CONTENT ABOVE IMAGE */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 20px;
+}
+@media (min-width: 992px) {
+  .hero-content {
+    margin-top: -40px;   /* gently lift text */
+  }
+}
+
+/* TEXT (UNCHANGED) */
+.hero h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* BUTTON (UNCHANGED) */
+.hero-btn {
+  background: #8b5e3c;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.hero-btn:hover {
+  background: #70492f;
+}
+
+/* INTRO SECTION */
+.intro {
+  background: #fff;
+  text-align: center;
+  padding: 60px 20px;
+}
+.intro h2 {
+  font-size: 26px;
+  color: #8b5e3c;
+  margin-bottom: 15px;
+}
+.intro p {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  background-color: #f9f4f1;
+  text-align: center;
+  padding: 10px 0;
+}
+.contact-container h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.contact-container p {
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+.contact-icons { margin-top: 10px; }
+.contact-icon img {
+  width: 26px;
+  height: 26px;
+  margin: 0 5px;
+}
+
+/* FOOTER */
+footer {
+  background-color: #f9f4f1;
+  text-align: center;
+  padding: 2px 0;
+  font-size: 13px;
+  color: #333;
+  border-top: 1px solid #ddd;
+}

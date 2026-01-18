@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preconception Wellness | A Nutritionist Mom</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root{
+  --peach:#f6c1a2;
+  --rose:#e9a7b0;
+  --brown:#6b4b2a;
+  --dark:#3c2e1e;
+  --cream:#fff7f1;
+}
+
+body{
+  margin:0;
+  font-family:"Poppins",sans-serif;
+  background:linear-gradient(180deg,#fff7f1,#fde8d7);
+}
+
+    /* ===========================
+   FIXED TOP BAR
+   =========================== */
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: #fffaf5;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  z-index: 1000;
+}
+
+.top-bar-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 85px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Brand name */
+.brand-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b5e3c;
+  letter-spacing: 0.3px;
+}
+/* ===== HERO ===== */
+.pre-hero{
+  min-height:90vh;
+  background:
+    linear-gradient(rgba(255,29,29,.45),rgba(57,10,10,.45)),
+    url("preconception-bg.jpg") center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding:120px 8%;
+  color:#fff;
+}
+
+.hero-box{
+  max-width:650px;
+}
+
+.hero-box h1{
+  font-size:42px;
+  line-height:1.2;
+  margin-bottom:18px;
+}
+
+.hero-box p{
+  font-size:18px;
+  opacity:.95;
+}
+
+.hero-tag{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--peach),var(--rose));
+  padding:8px 18px;
+  border-radius:30px;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+/* ===== INFO SECTION ===== */
+.pre-info{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:60px;
+  padding:80px 8%;
+  background:#fff;
+}
+
+.pre-text h2{
+  font-size:30px;
+  color:var(--brown);
+  margin-bottom:18px;
+}
+
+.pre-text p{
+  color:var(--dark);
+  line-height:1.8;
+  margin-bottom:16px;
+  font-size:16px;
+}
+
+.pre-image img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+/* ===== FEATURES ===== */
+.features{
+  padding:80px 8%;
+  background:linear-gradient(135deg,#fff3e8,#fde8d7);
+}
+
+.features h2{
+  text-align:center;
+  font-size:30px;
+  color:var(--brown);
+  margin-bottom:50px;
+}
+
+.feature-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:30px;
+}
+
+.feature-card{
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  transition:.3s;
+}
+
+.feature-card:hover{
+  transform:translateY(-6px);
+}
+
+.feature-card h3{
+  color:#8b5e3c;
+  margin-bottom:10px;
+}
+
+.feature-card p{
+  font-size:14px;
+  line-height:1.7;
+  color:var(--dark);
+}
+
+/* ===== PRICING ===== */
+.pricing{
+  padding:70px 8%;
+  background:linear-gradient(135deg,var(--peach),var(--rose));
+  color:#fff;
+  text-align:center;
+}
+
+.pricing h2{
+  font-size:28px;
+  margin-bottom:15px;
+}
+
+.pricing p{
+  font-size:18px;
+}
+
+.price-box{
+  margin-top:25px;
+  background:rgba(255,255,255,.18);
+  padding:25px;
+  border-radius:20px;
+  display:inline-block;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .pre-info{
+    grid-template-columns:1fr;
+  }
+  .hero-box h1{
+    font-size:32px;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <!-- FIXED TOP BAR -->
+<header class="top-bar">
+  <div class="top-bar-inner">
+    <span class="brand-name"><strong>A Nutritionist Mom</strong></span>
+  </div>
+</header>
+  <!-- ========== NAVBAR (copied into this page) ========== -->
+  <!-- Menu icon -->
+  <div class="menu-icon" id="menu-icon">☰</div>
+
+  <!-- Sign-in button -->
+  <div class="signin-btn" id="signin-btn">
+    <a href="signin.html" id="signin-link">Register</a>
+  </div>
+
+  <!-- Optional overlay element (script will create if missing) -->
+  <div id="navbar-overlay" class="navbar-overlay" aria-hidden="true"></div>
+
+  <!-- Sidebar navigation -->
+  <nav id="sidebar" aria-hidden="true">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+
+      <li class="dropdown">
+        <span class="dropdown-toggle" tabindex="0">Services ▾</span>
+        <ul class="submenu">
+         
+          <li>
+            <span class="dropdown-toggle" tabindex="0">Pregnancy ▾</span>
+            <ul class="submenu">
+              <li><a href="prenatal.html">Prenatal</a></li>
+              <li><a href="preconception.html">Preconception</a></li>
+              
+              <li><a href="postpartum.html">Postpartum</a></li>
+            </ul>
+          </li>
+
+          <li><a href="one.html">1–1 Consultation</a></li>
+        </ul>
+      </li>
+
+      <li><a href="tips.html">Weekly Tips</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+  <!-- ========== end navbar ========== -->
+<!-- HERO -->
+<section class="pre-hero">
+  <div class="hero-box">
+    <span class="hero-tag">Preconception Wellness Program</span>
+    <h1>Prepare Your Body Gently for a Healthy Pregnancy</h1>
+    <p>
+      Preconception care is about nurturing your body before pregnancy —
+      balancing hormones, strengthening nutrition, and creating emotional readiness
+      for a smooth and confident motherhood journey.
+    </p>
+  </div>
+</section>
+
+<!-- INFO -->
+<section class="pre-info">
+  <div class="pre-text">
+    <h2>What is Preconception Care?</h2>
+    <p>
+      Preconception care focuses on preparing the body months before conception.
+      It helps regulate menstrual cycles, improve fertility naturally, correct
+      nutritional deficiencies, and reduce future pregnancy complications.
+    </p>
+    <p>
+      This program is designed for women who want to conceive naturally,
+      manage PCOD or thyroid concerns, or simply wish to enter pregnancy
+      physically and emotionally strong.
+    </p>
+  </div>
+
+  <div class="pre-image">
+    <img src="prepragnacny.jpg" alt="Preconception Care Wellness">
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <h2>What This Program Includes</h2>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>Fertility-Supportive Yoga</h3>
+      <p>
+        Gentle yoga practices to improve pelvic circulation,
+        hormonal balance, and stress reduction.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Nutrition for Cycle Health</h3>
+      <p>
+        Personalized nutrition to support metabolic balance,
+        ovulation, and nutrient absorption.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Lifestyle Guidance</h3>
+      <p>
+        Sleep routines, daily habits, and stress management
+        designed for fertility support.
+      </p>
+    </div>
+
+    <div class="feature-card">
+      <h3>Private Consultation</h3>
+      <p>
+        One-on-one guidance with continuous WhatsApp support
+        based on your individual needs.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <h2>Investment</h2>
+  <div class="price-box">
+    <p><strong>₹3,000 – ₹7,000</strong></p>
+    <p>(Offered privately based on individual needs)</p>
+  </div>
+</section>
+
+
+<!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <h2>Contact Me</h2>
+      <p>Connect with me on social platforms or reach out directly.</p>
+      <div class="contact-icons">
+        <a href="https://www.instagram.com/a_nutritionist_mom/?next=%2F" target="_blank" class="contact-icon" title="Instagram">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com/@A_nutritionist_mom" target="_blank" class="contact-icon" title="YouTube">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+        </a>
+      </div>
+      <div class="contact-details">
+        <p><strong>Email:</strong> <a href="mailto:anutritionistmom@gmail.com">anutritionistmom@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+    <footer>
+      © 2025 A Nutritionist Mom. All rights reserved.
+    </footer>
+  <script>
+(function () {
+  // initialize after DOM ready so getElementById won't return null
+  function init() {
+    const menuIcon = document.getElementById('menu-icon');
+    const sidebar = document.getElementById('sidebar');
+    const logoutBtn = document.getElementById('logoutBtn') || document.getElementById('logout-btn') || null;
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    const overlayId = 'navbar-overlay';
+    let overlay = document.getElementById(overlayId);
+
+    // Defensive: if required elements are missing, do nothing (no runtime error)
+    if (!menuIcon || !sidebar) {
+      // still create overlay if needed so other parts of page relying on it don't break
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = overlayId;
+        overlay.className = 'navbar-overlay';
+        overlay.setAttribute('aria-hidden', 'true');
+        document.body.appendChild(overlay);
+      }
+      return; // nothing else to wire
+    }
+
+    // Create overlay if not present
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = overlayId;
+      overlay.className = 'navbar-overlay';
+      overlay.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(overlay);
+    }
+
+    // small guard to prevent double-init if script runs twice
+    if (menuIcon.dataset.navInit === 'true') return;
+    menuIcon.dataset.navInit = 'true';
+
+    // state
+    let isOpen = false;
+
+    function openSidebar() {
+      sidebar.classList.add('active');
+      overlay.classList.add('show');
+      sidebar.setAttribute('aria-hidden', 'false');
+      overlay.setAttribute('aria-hidden', 'false');
+      menuIcon.textContent = '✕';
+      menuIcon.setAttribute('aria-expanded', 'true');
+      isOpen = true;
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('show');
+      sidebar.setAttribute('aria-hidden', 'true');
+      overlay.setAttribute('aria-hidden', 'true');
+      menuIcon.textContent = '☰';
+      menuIcon.setAttribute('aria-expanded', 'false');
+      isOpen = false;
+      // close any open submenu inline styles to avoid stale state
+      document.querySelectorAll('#sidebar .submenu').forEach(sm => { sm.style.display = 'none'; });
+      document.querySelectorAll('#sidebar .dropdown-toggle.open').forEach(t => t.classList.remove('open'));
+    }
+
+    function toggleSidebar() {
+      isOpen ? closeSidebar() : openSidebar();
+    }
+
+    // Menu icon: click & keyboard
+    menuIcon.setAttribute('role', 'button');
+    menuIcon.setAttribute('tabindex', '0');
+    menuIcon.setAttribute('aria-expanded', 'false');
+
+    menuIcon.addEventListener('click', function (e) {
+      e.stopPropagation();
+      toggleSidebar();
+    });
+    menuIcon.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleSidebar();
+      }
+    });
+
+    // overlay click closes sidebar
+    overlay.addEventListener('click', function () {
+      if (isOpen) closeSidebar();
+    });
+
+    // click outside closes sidebar
+    document.addEventListener('click', function (e) {
+      const target = e.target;
+      if (isOpen && sidebar && !sidebar.contains(target) && !menuIcon.contains(target) && target !== menuIcon) {
+        closeSidebar();
+      }
+    });
+
+    // Escape closes
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen) closeSidebar();
+    });
+
+    // Setup dropdown toggles (nested)
+    if (dropdownToggles && dropdownToggles.length) {
+      dropdownToggles.forEach(toggle => {
+        // make keyboard accessible if it wasn't
+        if (!toggle.hasAttribute('tabindex')) toggle.setAttribute('tabindex', '0');
+
+        // prevent duplicate listeners if script run twice
+        if (toggle.dataset.dropdownInit === 'true') return;
+        toggle.dataset.dropdownInit = 'true';
+
+        toggle.addEventListener('click', function (ev) {
+          ev.stopPropagation();
+          const submenu = toggle.nextElementSibling;
+          if (!submenu) return;
+          const shown = submenu.style.display === 'block';
+          submenu.style.display = shown ? 'none' : 'block';
+          toggle.classList.toggle('open', !shown);
+        });
+
+        toggle.addEventListener('keydown', function (ev) {
+          if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault();
+            toggle.click();
+          }
+        });
+      });
+    }
+
+    // responsive: if resizing to desktop, close overlay/sidebar to match CSS-visible sidebar
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 900 && isOpen) {
+        closeSidebar();
+      }
+    });
+
+    // optional logout button handling (safe if missing)
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', function (ev) {
+        ev.preventDefault();
+        try {
+          localStorage.removeItem('isLoggedIn');
+          // remove other keys you might be storing
+          localStorage.removeItem('token');
+          localStorage.removeItem('userName');
+        } catch (err) { /* ignore storage errors */ }
+        // simple UX: reload so UI switches to logged-out state
+        location.reload();
+      });
+    }
+
+    // expose for debugging if needed
+    window._nav = {
+      openSidebar,
+      closeSidebar,
+      toggleSidebar,
+      isOpen: () => isOpen
+    };
+  } // end init
+
+  // run init when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>

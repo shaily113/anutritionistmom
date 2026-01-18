@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hormonal Balance & Weight Management Program</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root {
+  --primary: #8b5e3c;
+  --secondary: #f5ebe0;
+  --accent: #d4a373;
+  --text: #3c2e1e;
+  --muted: #7a6754;
+  --card: #ffffff;
+  --shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins",sans-serif;
+}
+
+body {
+  background: var(--secondary);
+  color: var(--text);
+ 
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, #fefae0, #faedcd);
+  padding: 80px 20px;
+  text-align: center;
+   line-height: 1.6;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  color: var(--primary);
+  margin-bottom: 15px;
+}
+
+.hero p {
+  max-width: 720px;
+  margin: auto;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+/* ===== SECTION ===== */
+.section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+   line-height: 1.6;
+}
+
+.section h2 {
+  font-size: 2rem;
+  color: var(--primary);
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* ===== CARD ===== */
+.card {
+  background: var(--card);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+   line-height: 1.6;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card h3 {
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.card ul {
+  list-style: none;
+}
+
+.card ul li {
+  padding-left: 18px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.card ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* ===== PRICE ===== */
+.price-box {
+  background: linear-gradient(135deg, #fff, #faedcd);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  text-align: center;
+   line-height: 1.6;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+  font-size: 1.1rem;
+}
+
+.new-price {
+  font-size: 2.2rem;
+  color: var(--primary);
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* ===== BUTTON ===== */
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 32px;
+  background: var(--primary);
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #6f4428;
+}
+
+/* ===== ANIMATION ===== */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+    /* ================= MENU ICON ================= */
+    .menu-icon{
+      position:fixed;
+      top:20px;
+      left:20px;
+      font-size:28px;
+      cursor:pointer;
+      z-index:1000;
+      background:#fff;
+      padding:6px 12px;
+      border-radius:8px;
+      border:none;
+      box-shadow:0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    /* ================= SIDEBAR ================= */
+    #sidebar{
+      position:fixed;
+      left:-260px;
+      top:0;
+      width:260px;
+      height:100%;
+      background:#fff;
+      box-shadow:2px 0 10px rgba(0,0,0,0.1);
+      transition:left 0.28s ease;
+      z-index:999;
+      padding-top:80px;
+    }
+    #sidebar.active{ left:0; }
+
+    #sidebar ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    #sidebar ul li{
+      padding:12px 22px;
+    }
+
+    #sidebar ul li a{
+      text-decoration:none;
+      color:#4a3c2b;
+      font-weight:500;
+      display:block;
+    }
+
+    #sidebar ul li a:hover{
+      color:var(--accent);
+    }
+
+    .navbar-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.3);
+      display:none;
+      z-index:998;
+    }
+    .navbar-overlay.show{ display:block; }
+
+    /* ===== SIDEBAR DIVIDER ===== */
+    .sidebar-divider{
+      height:1px;
+      background:#e2d6cc;
+      margin:14px 18px;
+      padding:0 !important;
+    }
+
+    /* ===== SIDEBAR ACTION BUTTONS ===== */
+    .sidebar-actions{
+      display:flex;
+      gap:10px;
+      padding:10px 18px;
+    }
+
+    .sidebar-btn{
+      flex:1;
+      background:#8b5e3c;
+      color:#fff;
+      border:none;
+      padding:8px 0;
+      border-radius:8px;
+      font-size:13px;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .sidebar-btn:hover{ background:#70492f; }
+
+    .sidebar-btn.logout{
+      background:#70492f;
+    }
+
+/* ================= CONTACT SECTION ================= */
+.contact-section{
+  margin-top:60px;
+  padding-top:30px;
+  border-top:1px solid #e2d6cc;
+  text-align:center;
+}
+
+.contact-section h3{
+  color:var(--accent);
+  margin-bottom:6px;
+}
+
+.contact-desc{
+  font-size:14px;
+  color:#6b5b4d;
+}
+
+.contact-icons{
+  margin-top:12px;
+}
+
+.contact-icons a{
+  display:inline-block;
+  margin:0 8px;
+}
+
+.contact-icons img{
+  width:26px;
+  height:26px;
+  opacity:0.8;
+  transition:opacity 0.3s ease, transform 0.3s ease;
+}
+
+.contact-icons img:hover{
+  opacity:1;
+  transform:translateY(-2px);
+}
+
+/* ================= FOOTER ================= */
+.site-footer{
+  margin-top:40px;
+  padding:14px 0;
+  text-align:center;
+  font-size:13px;
+  color:#5a4a3a;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- MENU ICON -->
+<button class="menu-icon" id="menu-icon">☰</button>
+
+<!-- OVERLAY -->
+<div id="navbar-overlay" class="navbar-overlay"></div>
+
+<!-- SIDEBAR -->
+<nav id="sidebar">
+  <ul>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="zpren.html">Prenatal</a></li>
+<li><a href="zpost.html">Postpartum</a></li>
+<li><a href="zprec.html">Preconception</a></li>
+
+<li><a href="z1-1.html">1–1 Consultation</a></li>
+
+
+
+    <li class="sidebar-divider"></li>
+
+    <li class="sidebar-actions" id="sidebar-actions" style="display:none;">
+      <button class="sidebar-btn" id="sidebar-profile">Profile</button>
+      <button class="sidebar-btn logout" id="sidebar-logout">Logout</button>
+    </li>
+  </ul>
+</nav>
+<!-- HERO -->
+<section class="hero">
+  <h1>Hormonal Balance & Weight Management Program</h1>
+  <p>
+    A 1-month personalised program designed for women seeking natural hormone
+    regulation, sustainable weight management, and improved energy, mood, and cycle health.
+  </p>
+</section>
+
+<!-- IDEAL FOR -->
+<section class="section fade">
+  <h2>Ideal For Women Who</h2>
+  <div class="grid">
+    <div class="card">
+      <ul>
+        <li>Experience irregular periods, PMS, painful cycles</li>
+        <li>Have PCOS or thyroid-related concerns</li>
+        <li>Struggle with unexplained weight gain or low weight</li>
+      </ul>
+    </div>
+    <div class="card">
+      <ul>
+        <li>Have a sedentary job and long sitting hours</li>
+        <li>Experience bloating, fatigue, mood swings</li>
+        <li>Want natural, long-term hormone balance</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- NUTRITION -->
+<section class="section fade">
+  <h2>Nutrition Plan Includes</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Personalised Nutrition</h3>
+      <ul>
+        <li>Fully customised Indian diet</li>
+        <li>Blood sugar & insulin balance</li>
+        <li>Adequate protein & healthy fats</li>
+        <li>Gut & liver health focus</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Practical & Sustainable</h3>
+      <ul>
+        <li>Office-friendly meals & snacks</li>
+        <li>No starvation or crash dieting</li>
+        <li>Weekly updated diet plans</li>
+        <li>Eating out & travel guidance</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- YOGA -->
+<section class="section fade">
+  <h2>Yoga & Lifestyle Support</h2>
+  <div class="grid">
+    <div class="card">
+      <ul>
+        <li>1-hour guided yoga session</li>
+        <li>Morning or evening flexibility</li>
+        <li>Hormone-balancing asanas</li>
+        <li>Pelvic & core strengthening</li>
+      </ul>
+    </div>
+    <div class="card">
+      <ul>
+        <li>Stress & nervous system balance</li>
+        <li>Breathwork for cravings & anxiety</li>
+        <li>Improved sleep quality</li>
+        <li>Posture correction</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="section fade">
+  <h2>Program Fees</h2>
+  <div class="price-box">
+    <div class="old-price">₹7499 / month</div>
+    <div class="new-price">₹3499 / month</div>
+    <p>Limited-time special offer</p>
+    <a href="z1-1.html" class="btn">Book Your Consultation</a>
+  </div>
+</section>
+
+<!-- ================= CONTACT SECTION ================= -->
+<section class="contact-section" id="contact">
+  <h3 id="contactTitle">Contact Me</h3>
+  <p class="contact-desc">
+    Connect with me on social platforms or reach out directly for queries and consultation.
+  </p>
+
+  <div class="contact-icons">
+    <a href="https://www.instagram.com/a_nutritionist_mom/" target="_blank" aria-label="Instagram">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+    </a>
+
+    <a href="mailto:shailyjain@gmail.com" aria-label="Email">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail">
+    </a>
+
+    <a href="https://www.youtube.com/@A_nutritionist_mom" target="_blank" aria-label="YouTube">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+    </a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  © 2025 A Nutritionist Mom. All rights reserved.
+</footer>
+
+<!-- ================= SCRIPT ================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase;
+
+  const supabaseClient = createClient(
+    "https://kajqxzywlanjmjrwseyt.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImthanF4enl3bGFuam1qcndzZXl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3NTAzMzUsImV4cCI6MjA4MjMyNjMzNX0.kLtQOJDx2NEYagClt_AwjuoUl1pzXGh6mM7Hg8I9AvA"
+  );
+
+  async function checkProfileCompletion() {
+  const { data } = await supabaseClient.auth.getSession();
+
+  if (!data.session) {
+    location.href = "signin.html";
+    return;
+  }
+
+  const user = data.session.user;
+
+  const { data: profile } = await supabaseClient
+    .from("profiles")
+    .select("is_profile_complete")
+    .eq("id", user.id)
+    .single();
+
+const faders = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.2 });
+
+faders.forEach(fade => observer.observe(fade));
+
+
+  // 🚨 IMPORTANT LOGIC
+  if (!profile || !profile.is_profile_complete) {
+    location.href = "profile.html"; // profile-setup page
+  }
+}
+
+// run immediately
+checkProfileCompletion();
+
+/* ================= AUTH CHECK ================= */
+async function requireAuth() {
+  const { data } = await supabaseClient.auth.getSession();
+  if (!data.session) {
+    location.href = "signin.html";
+    return false;
+  }
+  return true;
+}
+
+requireAuth();
+
+/* ===== IDLE TIMEOUT LOGOUT ===== */
+let idleTimer;
+const IDLE_LIMIT = 10 * 60 * 1000; // 10 minutes
+
+function resetIdleTimer() {
+  clearTimeout(idleTimer);
+  idleTimer = setTimeout(() => {
+    
+    window.location.href = "signin.html";
+  }, IDLE_LIMIT);
+}
+
+["mousemove", "keydown", "click", "scroll", "touchstart"].forEach(evt => {
+  document.addEventListener(evt, resetIdleTimer, true);
+});
+
+resetIdleTimer();
+
+
+  /* ===== SIDEBAR ===== */
+  const menuIcon = document.getElementById("menu-icon");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("navbar-overlay");
+  let isOpen = false;
+
+  function openSidebar(){
+    sidebar.classList.add("active");
+    overlay.classList.add("show");
+    menuIcon.textContent = "✕";
+    isOpen = true;
+  }
+
+  function closeSidebar(){
+    sidebar.classList.remove("active");
+    overlay.classList.remove("show");
+    menuIcon.textContent = "☰";
+    isOpen = false;
+  }
+
+  menuIcon.addEventListener("click", ()=>{
+    isOpen ? closeSidebar() : openSidebar();
+  });
+
+  overlay.addEventListener("click", closeSidebar);
+
+  document.addEventListener("click",(e)=>{
+    if(isOpen && !sidebar.contains(e.target) && !menuIcon.contains(e.target)){
+      closeSidebar();
+    }
+  });
+
+ 
+  /* ===== SIDEBAR PROFILE / LOGOUT ===== */
+  const sidebarActions = document.getElementById("sidebar-actions");
+  const sidebarProfile = document.getElementById("sidebar-profile");
+  const sidebarLogout = document.getElementById("sidebar-logout");
+
+ 
+  /* ===== SIDEBAR PROFILE / LOGOUT (SUPABASE) ===== */
+async function setupSidebarAuth() {
+  const { data } = await supabaseClient.auth.getSession();
+
+  if (data.session) {
+    sidebarActions.style.display = "flex";
+
+    sidebarProfile.onclick = () => {
+      window.location.href = "user-details.html";
+    };
+
+    sidebarLogout.onclick = async () => {
+      await supabaseClient.auth.signOut();
+      window.location.href = "signin.html";
+    };
+  }
+}
+
+setupSidebarAuth();
+
+</script>
+
+</body>
+</html>

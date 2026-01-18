@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me | A Nutritionist Mom</title>
+
+  <!-- Global CSS (Navbar styles are in style.css) -->
+  <link rel="stylesheet" href="">
+
+  <style>
+    body {
+      margin: 0;
+      background-color: #faf4ef;
+      font-family: "Poppins", sans-serif;
+      color: #3c2e1e;
+    }
+:root {
+  /* Primary */
+  --accent: #8b5e3c;        /* brown */
+
+  /* Secondary */
+  --sage: #7fa99b;         /* calm green */
+  --peach: #f4c6b1;        /* soft peach */
+  --blush: #f8e1d9;        /* light pink */
+  --gold: #e3b23c;         /* warm highlight */
+
+  /* Neutrals */
+  --bg: #faf4ef;
+  --card: #ffffff;
+  --text: #3c2e1e;
+  --muted: #7a6754;
+
+  --shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* ===========================
+   ABOUT HERO (BIG TITLE)
+   =========================== */
+
+.about-hero {
+  height: 55vh;
+  width: 100%;
+  background:  
+    linear-gradient(
+      135deg,
+      #8b5e3c 0%,
+      #b07a4a 50%,
+      #e3b23c 100%
+    );
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.about-hero h1 {
+  color: #ffffff;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* subtle wave effect (optional but premium) */
+.about-hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: #faf4ef;
+  clip-path: polygon(0 60%, 50% 100%, 100% 60%, 100% 100%, 0 100%);
+}
+/* ===========================
+   ABOUT CONTENT
+   =========================== */
+
+.about-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 40px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 70px;
+  align-items: center;
+}
+
+/* Images */
+.about-images {
+  display: grid;
+  gap: 20px;
+}
+
+.about-images img {
+  width: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.about-subtitle {
+  font-style: italic;
+  color: #6f5a48;
+  margin-bottom: 22px;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 14px;
+  color: #3c2e1e;
+}
+/* ===========================
+   ABOUT PAGE – EXTRA SECTIONS
+=========================== */
+
+.about-extra {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  background: var(--bg);
+}
+
+.about-extra.light {
+   background: linear-gradient(
+    180deg,
+    var(--blush),
+    #ffffff
+  );
+}
+
+.about-extra h2 {
+  text-align: center;
+  color: #8b5e3c;
+  margin-bottom: 50px;
+  font-size: 30px;
+}
+
+/* Philosophy / Approach */
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.approach-card {
+  background: #fff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.approach-card h3 {
+  color: #6c4120;
+  margin-bottom: 12px;
+}
+.approach-card:nth-child(1) {
+  border-top: 4px solid var(--sage);
+}
+
+.approach-card:nth-child(2) {
+  border-top: 4px solid var(--peach);
+}
+
+.approach-card:nth-child(3) {
+  border-top: 4px solid var(--gold);
+}
+
+/* Who I Help */
+.who-list {
+  max-width: 700px;
+  
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 2;
+   color: #000000;
+}
+
+/* How I Work */
+.work-steps {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.work-step {
+  background: #fff;
+  padding: 30px;
+  border-radius: 14px;
+  max-width: 260px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.work-step span {
+  background: var(--blush);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 18px;
+}
+
+/* Trust */
+.trust-points {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 2;
+}
+.trust-points p {
+  background: #fff;
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+/* Responsive */
+@media (max-width: 900px) {
+  .approach-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-extra {
+    padding: 60px 20px;
+  }
+}
+.btn.secondary {
+  background: var(--sage);
+}
+
+.btn.secondary:hover {
+  background: #6a9487;
+}
+/* ===============================
+   SUPPORT SECTION (PREMIUM)
+================================ */
+
+.support-section {
+  background: #fdeee5;
+  padding: 90px 20px;
+  text-align: center;
+}
+
+.support-title {
+  font-size: 34px;
+  color: #8b5e3c;
+  margin-bottom: 20px;
+}
+
+.support-intro {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #4a3c2b;
+}
+
+/* Support grid */
+.support-grid {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+/* Individual item */
+.support-item {
+  background: #ffffff;
+  padding: 18px 22px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  text-align: left;
+}
+
+.support-item span {
+  width: 34px;
+  height: 34px;
+  background: #f8e1d9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8b5e3c;
+  font-weight: bold;
+}
+
+.support-item p {
+  margin: 0;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: #3c2e1e;
+}
+
+/* Belief text */
+.support-belief {
+  max-width: 720px;
+  margin: 30px auto 50px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #5a4634;
+}
+
+/* Promise box */
+.promise-box {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+.promise-box h3 {
+  color: #8b5e3c;
+  margin-bottom: 12px;
+  font-size: 24px;
+}
+
+.promise-box p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #3c2e1e;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .support-title {
+    font-size: 28px;
+  }
+  .support-intro {
+    font-size: 16.5px;
+  }
+  .promise-box {
+    padding: 28px 20px;
+  }
+}
+
+/* ===========================
+   FIXED TOP BAR
+   =========================== */
+
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background: #fffaf5;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  z-index: 1000;
+}
+
+.top-bar-inner {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 85px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Brand name */
+.brand-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #8b5e3c;
+  letter-spacing: 0.3px;
+}
+
+   /* MENU ICON */
+.menu-icon {
+  position:fixed;
+  top:20px;
+  left:20px;
+  font-size:28px;
+  cursor:pointer;
+  z-index:1000;
+  background:#fff;
+  padding:6px 12px;
+  border-radius:8px;
+  
+/* REMOVE BLACK BORDER */
+  border: none;
+  outline: none;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* REGISTER BUTTON */
+.signin-btn {
+  position:fixed;
+  top:20px;
+  right:25px;
+  z-index:1000;
+  background:#8b5e3c;
+  padding:8px 16px;
+  border-radius:8px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+.signin-btn a {
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+}
+
+/* SIDEBAR MENU */
+#sidebar {
+  position:fixed;
+  left:-260px;
+  top:0;
+  width:260px;
+  height:100%;
+  background:#fff;
+  box-shadow:2px 0 10px rgba(0,0,0,0.1);
+  transition:left 0.28s ease;
+  z-index:999;
+  padding-top:80px;
+}
+#sidebar.active { left:0; }
+
+#sidebar ul { list-style:none; padding:0; margin:0; }
+#sidebar ul li { padding:12px 22px; cursor:pointer; }
+
+/* DROPDOWN TOGGLE (Services, Weight Management, Pregnancy) */
+#sidebar .dropdown-toggle {
+  color:#4a3c2b;        /* Same color as normal links */
+  font-weight:500;
+  display:block;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+#sidebar .dropdown-toggle:hover {
+  color:#8b5e3c;        /* Same hover color as links */
+}
+
+/* Normal links */
+#sidebar ul li > a { 
+  color:#4a3c2b; 
+  text-decoration:none; 
+  font-weight:500; 
+  display:block; 
+}
+#sidebar ul li a:hover { color:#8b5e3c; }
+
+/* SUBMENU */
+.submenu {
+  display:none;
+  padding-left:15px;
+  margin-top:8px;
+}
+.submenu li { padding:8px 0; }
+
+/* Open state */
+.open + .submenu {
+  display:block;
+}
+
+/* Responsive */
+@media (max-width:768px) {
+  .consult-section { 
+    margin:100px 16px; 
+    flex-direction:column; 
+    text-align:center; 
+  }
+}
+
+/* CONTACT SECTION */
+.contact-section {
+  background-color: #f9f4f1;
+  text-align: center;
+  padding: 10px 0;
+}
+.contact-container h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.contact-container p {
+  font-size: 14px;
+  margin-bottom: 0px;
+}
+.contact-icons { margin-top: 10px; }
+.contact-icon img {
+  width: 26px;
+  height: 26px;
+  margin: 0 5px;
+}
+
+/* FOOTER */
+footer {
+  background-color: #f9f4f1;
+  text-align: center;
+  padding: 2px 0;
+  font-size: 13px;
+  color: #333;
+  border-top: 1px solid #ddd;
+}
+
+/* ===========================
+   MOBILE
+   =========================== */
+
+@media (max-width: 768px) {
+  .about-hero {
+    height: 40vh;
+  }
+
+  .about-section {
+    grid-template-columns: 1fr;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .about-images {
+    order: 2;
+  }
+}
+
+</style>
+</head>
+
+<body>
+<!-- FIXED TOP BAR -->
+<header class="top-bar">
+  <div class="top-bar-inner">
+    <span class="brand-name"><strong>A Nutritionist Mom</strong></span>
+  </div>
+</header>
+<section class="about-hero">
+  <h1>About Me</h1>
+</section>
+
+  <!-- ===========================
+       NAVBAR
+       =========================== -->
+
+  <!-- MENU ICON -->
+  <button class="menu-icon" id="menu-icon">☰</button>
+
+  <!-- REGISTER / USER BUTTON -->
+  <div class="signin-btn" id="signin-btn">
+    <a href="signin.html">Register</a>
+  </div>
+
+  <!-- OVERLAY -->
+  <div id="navbar-overlay" class="navbar-overlay"></div>
+
+  <!-- SIDEBAR -->
+  <nav id="sidebar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+
+      <li class="dropdown">
+        <span class="dropdown-toggle">Services ▾</span>
+
+        <ul class="submenu">
+
+          <li>
+            <span class="dropdown-toggle">Pregnancy ▾</span>
+            <ul class="submenu">
+              <li><a href="prenatal.html">Prenatal</a></li>
+              <li><a class="" href="preconception.html">Preconception</a></li>
+              
+              <li><a class="" href="postpartum.html">Postpartum</a></li>
+              
+            </ul>
+          </li>
+
+          <li><a class="" href="one.html">1–1 Consultation</a></li>
+        </ul>
+      </li>
+
+      <li><a href="tips.html">Weekly Tips</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
+<section class="about-section">
+
+  <div class="about-images">
+    <img src="kitchen about me.png" alt="Healthy preparation">
+  </div>
+
+  <div class="about-text">
+
+    <h2>Hi, I’m Shaily Jain</h2>
+
+    <p class="about-subtitle">
+      Nutritionist | Certified Pregnancy Yoga Expert | Mother
+    </p>
+
+    <p>
+      I am a Nutritionist and Certified Pregnancy Yoga Expert — but before any title,
+      I am a mother. My journey into pregnancy wellness did not begin in a classroom.
+      It began in real life.
+    </p>
+
+    <p>
+      Before becoming a nutritionist and pregnancy yoga expert, I went through a
+      <strong>high-risk pregnancy</strong> myself. I experienced gestational diabetes,
+      low amniotic fluid levels, a premature delivery, and ultimately a C-section.
+    </p>
+
+    <p>
+      During this time, I was also managing an <strong>MBA degree</strong> and a
+      <strong>full-time job</strong>, trying to navigate pregnancy with limited
+      practical guidance. Like many Indian women, I was surrounded by advice —
+      but very little clear, evidence-based, and supportive knowledge.
+    </p>
+
+    <p>
+      That experience changed the way I looked at pregnancy.
+      Instead of accepting complications as “normal” or “inevitable,”
+      I chose to educate myself deeply in
+      <strong>nutrition</strong> and <strong>pregnancy-safe yoga</strong>
+      to truly support a mother’s body.
+    </p>
+
+    <p>
+      Over the last <strong>3+ years</strong>, I have seen one powerful truth again and again:
+    </p>
+
+    <p class="highlight-quote">
+      With the right knowledge, timely guidance, and consistent support,
+      many pregnancy complications can be prevented, managed,
+      or significantly reduced.
+    </p>
+
+  </div>
+</section>
+
+<section class="about-extra">
+  <h2>My Philosophy & Approach</h2>
+
+  <div class="approach-grid">
+    <div class="approach-card">
+      <h3>Real & Practical Nutrition</h3>
+      <p>
+        I believe nutrition should fit into your real life — not the other way around.
+        No extreme diets, no food fear, and no unrealistic routines.
+      </p>
+    </div>
+
+    <div class="approach-card">
+      <h3>Woman-Centric Care</h3>
+      <p>
+        Every stage of a woman’s life is different. My guidance is always personalised,
+        empathetic, and focused on hormonal balance and overall wellbeing.
+      </p>
+    </div>
+
+    <div class="approach-card">
+      <h3>Mind–Body Balance</h3>
+      <p>
+        Nutrition, gentle yoga, breathwork, and lifestyle habits work together —
+        not separately — for long-term health.
+      </p>
+    </div>
+  </div>
+</section>
+<section class="support-section">
+
+  <h2 class="support-title">How I Support You</h2>
+
+  <p class="support-intro">
+    Today, I work with women to gently guide them through pregnancy with clarity,
+    confidence, and calm.
+  </p>
+
+  <div class="support-grid">
+
+    <div class="support-item">
+      <span>✓</span>
+      <p>Navigate pregnancy with confidence, not fear</p>
+    </div>
+
+    <div class="support-item">
+      <span>✓</span>
+      <p>Understand food beyond myths and family pressure</p>
+    </div>
+
+    <div class="support-item">
+      <span>✓</span>
+      <p>Move safely with pregnancy-specific yoga</p>
+    </div>
+
+    <div class="support-item">
+      <span>✓</span>
+      <p>Maintain healthy weight gain and metabolic balance</p>
+    </div>
+
+    <div class="support-item">
+      <span>✓</span>
+      <p>Prepare both body and mind for birth and recovery</p>
+    </div>
+
+  </div>
+
+  <p class="support-belief">
+    I believe in realistic, Indian-lifestyle-based guidance, emotional reassurance,
+    and being present through the journey.
+  </p>
+
+  <div class="promise-box">
+    <h3>My Promise to You</h3>
+    <p>
+      I don’t just give plans.
+      I become your pregnancy partner — walking with you,
+      one step at a time.
+    </p>
+  </div>
+
+</section>
+
+<section class="about-extra light">
+  <h2>Why Clients Trust Me</h2>
+
+  <div class="trust-points">
+    <p>✔ Certified Nutrition & Pregnancy Yoga Professional</p>
+    <p>✔ 100+ women supported across different life stages</p>
+    <p>✔ No fad diets or one-size-fits-all plans</p>
+    <p>✔ Calm, respectful, and non-judgmental approach</p>
+  </div>
+</section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <h2>Contact Me</h2>
+      <p>Connect with me on social platforms or reach out directly.</p>
+      <div class="contact-icons">
+        <a href="https://www.instagram.com/a_nutritionist_mom/?next=%2F" target="_blank" class="contact-icon" title="Instagram">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+        </a>
+        <a href="https://www.youtube.com/@A_nutritionist_mom" target="_blank" class="contact-icon" title="YouTube">
+          <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg" alt="YouTube">
+        </a>
+      </div>
+      <div class="contact-details">
+        <p><strong>Email:</strong> <a href="mailto:anutritionistmom@gmail.com">anutritionistmom@gmail.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 A Nutritionist Mom. All rights reserved.</p>
+  </footer>
+  <!-- ===========================
+       NAVBAR JS
+       =========================== -->
+<script>
+ (
+  function(){
+
+  const menuIcon = document.getElementById("menu-icon");
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("navbar-overlay");
+  const dropdowns = document.querySelectorAll(".dropdown-toggle");
+  const signinWrap = document.getElementById("signin-btn");
+  let isOpen = false;
+
+  // COLLAPSE ALL SUBMENUS (new)
+  function collapseAllSubmenus(){
+    document.querySelectorAll('#sidebar .submenu').forEach(sm => {
+      sm.style.display = 'none';
+      sm.style.maxHeight = '';
+      sm.classList.remove('active');
+    });
+    document.querySelectorAll('#sidebar .dropdown-toggle').forEach(t => {
+      t.classList.remove('open');
+      t.setAttribute('aria-expanded', 'false');
+    });
+    document.querySelectorAll('#sidebar details[open]').forEach(d => d.removeAttribute('open'));
+  }
+
+  function openSidebar(){
+    sidebar.classList.add("active");
+    if (overlay) overlay.classList.add("show");
+    isOpen = true;
+    // show cross when open (new)
+    if (menuIcon) { menuIcon.textContent = "✕"; menuIcon.setAttribute('aria-expanded','true'); }
+  }
+
+  function closeSidebar(){
+    sidebar.classList.remove("active");
+    if (overlay) overlay.classList.remove("show");
+    isOpen = false;
+    // show hamburger when closed (new)
+    if (menuIcon) { menuIcon.textContent = "☰"; menuIcon.setAttribute('aria-expanded','false'); }
+    // collapse all submenus when sidebar closes (new)
+    collapseAllSubmenus();
+  }
+
+  function toggleSidebar(){
+    isOpen ? closeSidebar() : openSidebar();
+    // (icon handled in openSidebar/closeSidebar)
+  }
+
+  // guard in case menuIcon or sidebar missing
+  if (!menuIcon || !sidebar) return;
+
+  // ensure accessible attributes and initial glyph
+  menuIcon.setAttribute('role','button');
+  menuIcon.setAttribute('tabindex','0');
+  if (!menuIcon.textContent || menuIcon.textContent.trim() === '') menuIcon.textContent = '☰';
+  menuIcon.setAttribute('aria-expanded', 'false');
+
+  menuIcon.addEventListener("click", (e)=>{
+    e.stopPropagation();
+    toggleSidebar();
+  });
+
+  // keyboard support for menu icon
+  menuIcon.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); menuIcon.click(); }
+  });
+
+  if (overlay) overlay.addEventListener("click", closeSidebar);
+
+  document.addEventListener("click", (e)=>{
+    if(isOpen && !sidebar.contains(e.target) && !menuIcon.contains(e.target)){
+      closeSidebar();
+    }
+  });
+
+  // Dropdown logic (unchanged behavior, kept as-is)
+  dropdowns.forEach(btn=>{
+    btn.addEventListener("click", function(e){
+      e.stopPropagation();
+      const submenu = this.nextElementSibling;
+      submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+      this.classList.toggle("open");
+      // keep aria in sync
+      this.setAttribute('aria-expanded', String(submenu.style.display === "block"));
+    });
+  });
+
+  // Logged-in user menu (unchanged)
+  function loadUser(){
+    const token = localStorage.getItem("token");
+    const name = localStorage.getItem("userName");
+
+    if(token && name){
+      signinWrap.innerHTML = `
+        <div class="user-menu">
+          <button id="user-btn" class="user-btn">${name} ▾</button>
+          <div id="user-dropdown" class="user-dropdown">
+            <a href="profile.html">Profile</a>
+            <a href="#" id="logout-btn">Logout</a>
+          </div>
+        </div>
+      `;
+
+      const btn = document.getElementById("user-btn");
+      const dropdown = document.getElementById("user-dropdown");
+      const logout = document.getElementById("logout-btn");
+
+      btn.addEventListener("click", (e)=>{
+        e.stopPropagation();
+        dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
+      });
+
+      document.addEventListener("click", ()=>{
+        dropdown.style.display = "none";
+      });
+
+      logout.addEventListener("click", ()=>{
+        localStorage.removeItem("token");
+        localStorage.removeItem("userName");
+        location.reload();
+      });
+    }
+  }
+
+  loadUser();
+
+})();
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Profile | A Nutritionist Mom</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ===== GLOBAL STYLES (YOUR THEME) ===== -->
+  <style>
+    :root{
+      --accent:#8b5e3c;
+      --bg:#faf4ef;
+      --text:#3b2f27;
+    }
+
+    body{
+      margin:0;
+      font-family:"Poppins",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    /* ================= MENU ICON ================= */
+    .menu-icon{
+      position:fixed;
+      top:20px;
+      left:20px;
+      font-size:28px;
+      cursor:pointer;
+      z-index:1000;
+      background:#fff;
+      padding:6px 12px;
+      border-radius:8px;
+      border:none;
+      box-shadow:0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    /* ================= SIDEBAR ================= */
+    #sidebar{
+      position:fixed;
+      left:-260px;
+      top:0;
+      width:260px;
+      height:100%;
+      background:#fff;
+      box-shadow:2px 0 10px rgba(0,0,0,0.1);
+      transition:left 0.28s ease;
+      z-index:999;
+      padding-top:80px;
+    }
+    #sidebar.active{ left:0; }
+
+    #sidebar ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+    }
+
+    #sidebar ul li{
+      padding:12px 22px;
+    }
+
+    #sidebar ul li a{
+      text-decoration:none;
+      color:#4a3c2b;
+      font-weight:500;
+      display:block;
+    }
+
+    #sidebar ul li a:hover{
+      color:var(--accent);
+    }
+
+    .navbar-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,0.3);
+      display:none;
+      z-index:998;
+    }
+/* ===== SIDEBAR DIVIDER ===== */
+.sidebar-divider{
+  height:1px;
+  background:#e2d6cc;
+  margin:14px 18px;
+  padding:0 !important;
+}
+
+/* ===== SIDEBAR ACTION BUTTONS ===== */
+.sidebar-actions{
+  display:flex;
+  gap:10px;
+  padding:10px 18px;
+}
+
+.sidebar-btn{
+  flex:1;
+  background:#8b5e3c;
+  color:#fff;
+  border:none;
+  padding:8px 0;
+  border-radius:8px;
+  font-size:13px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.sidebar-btn:hover{
+  background:#70492f;
+}
+
+.sidebar-btn.logout{
+  background:#70492f;
+}
+
+.sidebar-btn.logout:hover{
+  background:#70492f;
+}
+
+    .navbar-overlay.show{ display:block; }
+
+    /* ================= PROFILE PAGE ================= */
+    .page{
+      margin-left:150px;
+      padding:110px 32px 40px;
+      max-width:900px;
+    }
+
+    h1{
+      color:var(--accent);
+      margin-bottom:20px;
+      font-size:26px;
+    }
+
+    .profile-card{
+      background:#fff;
+      padding:26px;
+      border-radius:14px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .profile-grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px 22px;
+    }
+
+    .field{
+      display:flex;
+      flex-direction:column;
+    }
+
+    .field label{
+      font-size:14px;
+      font-weight:600;
+      margin-bottom:6px;
+    }
+
+    .field input{
+      padding:11px 12px;
+      border-radius:8px;
+      border:1px solid #ccc;
+      font-size:15px;
+    }
+
+    .field input[readonly]{
+      background:#f2f2f2;
+      cursor:not-allowed;
+    }
+.field select{
+  padding:11px 12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:15px;
+  background:#fff;
+}
+
+    .actions{
+      margin-top:24px;
+      display:flex;
+      justify-content:flex-end;
+    }
+
+    .actions button{
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:12px 24px;
+      border-radius:8px;
+      font-weight:600;
+      cursor:pointer;
+    }
+
+    .msg{
+      margin-top:14px;
+      font-weight:600;
+    }
+
+    .success{ color:#0a7a3a; }
+    .error{ color:#b00020; }
+
+    @media(max-width:900px){
+      .page{ margin-left:0; padding:100px 20px; }
+      .profile-grid{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+
+<!-- ================= PROFILE CONTENT ================= -->
+<div class="page">
+  <h1>My Profile</h1>
+
+  <div class="profile-card">
+    <div class="profile-grid">
+
+      <div class="field">
+        <label>Full Name</label>
+        <input type="text" id="full_name">
+      </div>
+
+      <div class="field">
+        <label>Age</label>
+        <input type="number" id="age" min="0">
+      </div>
+
+      <div class="field">
+        <label>Mobile</label>
+        <input type="tel" id="mobile">
+      </div>
+
+    </div>
+<div class="field">
+  <label>Concern</label>
+  <select id="concern">
+    <option value="">Select your concern</option>
+    <option value="prenatal">Prenatal</option>
+    <option value="preconception">Preconception</option>
+    <option value="postpartum">Postpartum</option>
+  </select>
+</div>
+
+    <div class="actions">
+      <button onclick="saveProfile()">Save</button>
+
+    </div>
+
+    <div id="msg" class="msg"></div>
+  </div>
+</div>
+
+<!-- ================= JS ================= -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase;
+
+  const supabaseClient = createClient(
+    "https://kajqxzywlanjmjrwseyt.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImthanF4enl3bGFuam1qcndzZXl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3NTAzMzUsImV4cCI6MjA4MjMyNjMzNX0.kLtQOJDx2NEYagClt_AwjuoUl1pzXGh6mM7Hg8I9AvA"
+  );
+
+  /* ================= SIDEBAR TOGGLE ================= */
+const menuIcon = document.getElementById("menu-icon");
+const sidebar = document.getElementById("sidebar");
+const overlay = document.getElementById("navbar-overlay");
+
+let sidebarOpen = false;
+
+menuIcon.addEventListener("click", () => {
+  if (!sidebarOpen) {
+    sidebar.classList.add("active");
+    overlay.classList.add("show");
+    menuIcon.textContent = "✕";
+    sidebarOpen = true;
+  } else {
+    sidebar.classList.remove("active");
+    overlay.classList.remove("show");
+    menuIcon.textContent = "☰";
+    sidebarOpen = false;
+  }
+});
+
+/* Close when clicking overlay */
+overlay.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("show");
+  menuIcon.textContent = "☰";
+  sidebarOpen = false;
+});
+
+
+/* ================= AUTH UI ================= */
+async function setupSidebarAuth() {
+  const { data } = await supabaseClient.auth.getSession();
+  if (data.session) {
+    document.getElementById("sidebar-actions").style.display = "flex";
+  }
+}
+
+document.getElementById("sidebar-profile").onclick = () => {
+  location.href = "user-details.html";
+};
+
+document.getElementById("sidebar-logout").onclick = async () => {
+  await supabaseClient.auth.signOut();
+  location.href = "signin.html";
+};
+
+setupSidebarAuth();
+/* ================= AUTH CHECK ================= */
+async function requireAuth() {
+  const { data } = await supabaseClient.auth.getSession();
+  if (!data.session) {
+    location.href = "signin.html";
+    return null;
+  }
+  return data.session.user;
+}
+
+/* ================= LOAD PROFILE ================= */
+async function loadProfile() {
+  const user = await requireAuth();
+  if (!user) return;
+
+  const { data: profile } = await supabaseClient
+    .from("profiles")
+    .select("name, age, mobile, concern, is_profile_complete")
+    .eq("id", user.id)
+    .maybeSingle();
+
+  if (profile) {
+    document.getElementById("full_name").value = profile.name || "";
+    document.getElementById("age").value = profile.age || "";
+    document.getElementById("mobile").value = profile.mobile || "";
+    document.getElementById("concern").value = profile.concern || "";
+  }
+}
+
+/* ================= SAVE PROFILE ================= */
+async function saveProfile() {
+  const user = await requireAuth();
+  if (!user) return;
+
+  const fullName = document.getElementById("full_name").value.trim();
+  const age = document.getElementById("age").value;
+  const mobile = document.getElementById("mobile").value.trim();
+  const concern = document.getElementById("concern").value;
+
+  if (!fullName || !age || !mobile || !concern) {
+    alert("Please fill all profile details.");
+    return;
+  }
+
+  const { error } = await supabaseClient.from("profiles").upsert({
+    id: user.id,
+    email: user.email,          // ✅ STORED, NOT SHOWN
+    name: fullName,
+    age: Number(age),
+    mobile,
+    concern,
+    is_profile_complete: true
+  });
+
+  if (error) {
+    console.error("Save error:", error);
+    alert("Failed to save profile");
+    return;
+  }
+
+  alert("Profile saved successfully");
+  location.href = "dashboard.html";
+}
+
+/* ================= INIT ================= */
+loadProfile();
+window.saveProfile = saveProfile;
+
+</script>
+
+</body>
+
+</html>

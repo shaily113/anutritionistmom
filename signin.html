@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In | A Nutritionist Mom</title>
+
+  <!-- ===== CSS ===== -->
+  <style>
+    :root {
+      --accent: #8b5e3c;
+      --accent-dark: #a06f4b;
+      --bg: #f9f4ef;
+      --card: #ffffff;
+      --error: #b00020;
+      --success: #0a7a3a;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(180deg, #f9f4ef, #fff8f2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: var(--card);
+      padding: 35px 30px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,.08);
+    }
+
+    h1 {
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #3c2e1e;
+      font-size: 14px;
+    }
+
+    input {
+      width: 100%;
+      padding: 11px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      margin-bottom: 14px;
+      box-sizing: border-box;
+    }
+
+    input:focus {
+      border-color: var(--accent);
+      outline: none;
+      box-shadow: 0 0 6px rgba(139,94,60,.25);
+    }
+
+    button {
+      width: 100%;
+      padding: 11px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background .3s ease;
+    }
+
+    button:hover {
+      background: var(--accent-dark);
+    }
+
+    button:disabled {
+      background: #cbb7a6;
+      cursor: not-allowed;
+    }
+
+    .otp-section {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .msg {
+      margin-top: 12px;
+      font-size: 14px;
+    }
+
+    .error { color: var(--error); }
+    .success { color: var(--success); }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 28px 24px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1>Sign In</h1>
+<!-- EMAIL -->
+<label>Email</label>
+<input type="email" id="email" placeholder="your@email.com" />
+
+<button id="sendLinkBtn">Verify Email</button>
+
+<div id="msg" class="msg"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const { createClient } = supabase;
+
+  const supabaseClient = createClient(
+    "https://kajqxzywlanjmjrwseyt.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImthanF4enl3bGFuam1qcndzZXl0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3NTAzMzUsImV4cCI6MjA4MjMyNjMzNX0.kLtQOJDx2NEYagClt_AwjuoUl1pzXGh6mM7Hg8I9AvA"
+  );
+
+  const emailInput = document.getElementById("email");
+  const msg = document.getElementById("msg");
+  const sendBtn = document.getElementById("sendLinkBtn");
+
+  sendBtn.addEventListener("click", async () => {
+    msg.textContent = "";
+    msg.className = "msg";
+
+    const email = emailInput.value.trim();
+    if (!email) {
+      msg.textContent = "Email is required.";
+      msg.classList.add("error");
+      return;
+    }
+
+    sendBtn.disabled = true;
+    sendBtn.textContent = "Sending...";
+
+    const { error } = await supabaseClient.auth.signInWithOtp({
+      email,
+      options: {
+        emailRedirectTo: "http://127.0.0.1:5500/nutritionproject/frontend/verify.html",
+        shouldCreateUser: true
+      }
+    });
+
+    sendBtn.disabled = false;
+    sendBtn.textContent = "Verify Email";
+
+    if (error) {
+      msg.textContent = error.message;
+      msg.classList.add("error");
+    } else {
+      msg.textContent =
+        "We’ve sent a secure verification link to your email. Please click it to continue.";
+      msg.classList.add("success");
+    }
+  });
+</script>
+
+</body>
+</html>
