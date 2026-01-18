@@ -106,16 +106,73 @@
   font-weight: 500;
 }
 
-/* Mobile */
+/* ===========================
+   HERO – MOBILE FIX
+=========================== */
+
+/* Base hero fix */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Overlay for readability */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent; /* NO blur / NO fade */
+  z-index: 1;
+}
+
+/* Content above overlay */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* ===========================
+   MOBILE ONLY
+=========================== */
 @media (max-width: 768px) {
-  .why-choose h2 {
-    font-size: 26px;
+
+  /* Push content below fixed header */
+  .hero {
+    min-height: calc(100vh - 64px);
+    padding-top: 90px;
   }
 
-  .why-card {
-    padding: 24px 20px;
+  .hero-content h1 {
+    font-size: 28px;
+    line-height: 1.3;
+    margin-bottom: 14px;
+  }
+
+  .hero-content h1 br {
+    display: none; /* remove forced line break */
+  }
+
+  .hero-content p {
+    font-size: 15.5px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #3c2e1e;
+  }
+
+  .hero-btn {
+    font-size: 15px;
+    padding: 12px 22px;
+    border-radius: 26px;
   }
 }
+
+
 
 /* ===============================
    STORY CARDS
