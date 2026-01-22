@@ -231,6 +231,69 @@
   }
 }
 /* ===========================
+   BOOK SECTION
+=========================== */
+
+.book-section {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #fff6ec, #fde2e4);
+}
+
+.book-container {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.book-image img {
+  width: 260px;
+  border-radius: 12px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.book-content {
+  flex: 1;
+}
+
+.book-content h2 {
+  font-size: 32px;
+  color: #3a2d2d;
+  margin-bottom: 10px;
+}
+
+.book-subtitle {
+  font-size: 18px;
+  color: #8a4f7d;
+  margin-bottom: 15px;
+}
+
+.book-description {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.book-btn {
+  display: inline-block;
+  padding: 14px 30px;
+  background: #ff7a7a;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.book-btn:hover {
+  background: #e85d5d;
+  transform: translateY(-2px);
+}
+/* ===========================
    TESTIMONIALS
 =========================== */
 
@@ -433,7 +496,35 @@
 
   </div>
 </section>
+<!-- ===========================
+   BOOK SECTION
+=========================== -->
+<section class="book-section">
+  <div class="book-container">
 
+    <div class="book-image">
+      <img src="images/book-cover.jpg" alt="Nourishing You and Your Baby Book">
+    </div>
+
+    <div class="book-content">
+      <h2>Nourishing You and Your Baby</h2>
+      <p class="book-subtitle">
+        A simple guide to pre-pregnancy, pregnancy, and postpartum nutrition
+      </p>
+
+      <p class="book-description">
+        This book is designed to support women through every stage of motherhood —
+        from preconception to pregnancy and postpartum — with practical, easy-to-follow
+        nutrition guidance for both mother and baby.
+      </p>
+
+      <a href="https://amzn.in/d/23cy1NJ" target="_blank" class="book-btn">
+        Buy on Amazon
+      </a>
+    </div>
+
+  </div>
+</section>
 <!-- ===========================
      TESTIMONIALS
 =========================== -->
